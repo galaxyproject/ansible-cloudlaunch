@@ -33,11 +33,29 @@
     - install
     - deploy
 
+- name: Make Django app run under subpath
+  lineinfile: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py line="FORCE_SCRIPT_NAME='/cloudlaunch'"
+  tags:
+    - install
+    - deploy
+
+- name: Also adjust Django Static URL
+  lineinfile: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py line="STATIC_URL = FORCE_SCRIPT_NAME + '/static'"
+  tags:
+    - install
+    - deploy
+
 - name: Checkout cloudlaunch client source
   git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes
 
 - name: Install client requirements
   npm: path=/opt/cloudlaunch-ui state=latest
+  tags:
+    - install
+    - deploy
+
+- name: Adjust backend API url
+  lineinfile: dest=/opt/cloudlaunch-ui/app/app.settings.ts regexp="http://localhost:8000/api/v1" line="/api/v1"
   tags:
     - install
     - deploy

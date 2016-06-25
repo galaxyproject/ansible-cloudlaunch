@@ -1,3 +1,5 @@
-#- include: system_environment.yml
+- include: system_environment.yml
+  tags: sysenv
 
 - include: setup_webapp.yml
+  tags: webapp
