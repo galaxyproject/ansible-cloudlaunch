@@ -1,0 +1,5 @@
+- hosts: cloudlaunch-webserver
+  become: yes
+  become_user: root
+  roles:
+  - cloudlaunch

@@ -1,0 +1,42 @@
+- name: Add latest Python and Ansible PPAs
+  apt_repository: repo={{ item }} update_cache=no
+  with_items:
+    - ppa:fkrull/deadsnakes
+    - ppa:ansible/ansible
+
+- name: add NodeSource repository for Node.js 6.0
+  apt_repository: repo='{{ item }} https://deb.nodesource.com/node_6.x {{ ansible_distribution_release|lower }} main' state=present update_cache=no
+  with_items:
+    - deb
+    - deb-src
+
+- name: Update APT cache
+  apt: update_cache=yes
+
+- name: Install system packages
+  apt: pkg={{ item }} state=latest install_recommends=no force=yes
+  with_items:
+    - ansible
+    - gcc
+    - git-core
+    - libffi-dev
+    - libncurses5-dev
+    - libssl-dev
+    - nodejs
+    - python3.5
+    - python3.5-dev
+    - python-pip
+    - python-virtualenv
+    - python-setuptools
+    - software-properties-common
+    - wget
+    - vim
+
+- name: Install global npm packages
+  npm: name={{ item }} global=yes
+  with_items:
+    - tsd
+    - typings
+
+- name: Update python-setuptools
+  pip: name=setuptools state=latest
