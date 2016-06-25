@@ -1,0 +1,73 @@
+- name: Create cloudlaunch user group
+  group: name=cloudlaunch state=present
+
+- name: Create cloudlaunch user
+  user: name=cloudlaunch comment="Cloudlaunch Web User" group=cloudlaunch shell=/bin/bash
+
+- name: Create cloudlaunch directories
+  file:
+    path: '/opt/cloudlaunch'
+    state: 'directory'
+    owner: 'cloudlaunch'
+    group: 'cloudlaunch'
+    mode: '0755'
+
+- name: Checkout cloudlaunch server source
+  git: repo="https://github.com/galaxyproject/cloudlaunch" dest=/opt/cloudlaunch accept_hostkey=yes version=dev
+
+- name: Install server requirements
+  pip: requirements=/opt/cloudlaunch/requirements.txt virtualenv=/opt/cloudlaunch/.venv state=latest
+  tags:
+    - install
+    - deploy
+
+- name: Django migrate
+  django_manage: command=migrate app_path=/opt/cloudlaunch/django-cloudlaunch virtualenv=/opt/cloudlaunch/.venv
+  tags:
+    - install
+    - deploy
+
+- name: Django collectstatic
+  django_manage: command=collectstatic app_path=/opt/cloudlaunch/django-cloudlaunch virtualenv=/opt/cloudlaunch/.venv
+  tags:
+    - install
+    - deploy
+
+- name: Checkout cloudlaunch client source
+  git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes
+
+- name: Install client requirements
+  npm: path=/opt/cloudlaunch-ui state=latest
+  tags:
+    - install
+    - deploy
+
+- name: Compile typescript
+  shell: chdir=/opt/cloudlaunch-ui npm run tsc
+  tags:
+    - install
+    - deploy
+
+- name: Ensure nginx can access static path
+  file:
+    path: '/opt/cloudlaunch/djang-cloudlaunch/static/'
+    state: 'directory'
+    group: 'www-data'
+    mode: '0755'
+
+- name: Ensure nginx can access log path
+  file:
+    path: "{{ log_dir }}"
+    state: 'directory'
+    group: 'www-data'
+    mode: '0755'
+
+- name: Copy the nginx configuration file
+  template: src=nginx_conf_cloudlaunch.j2 dest=/etc/nginx/sites-available/cloudlaunch.org
+  notify:
+   - reload nginx
+
+- name: Symlink to nginx available sites
+  file: src=/etc/nginx/sites-available/cloudlaunch.org dest=/etc/nginx/sites-enabled/cloudlaunch.org state=link
+  notify:
+   - reload nginx
