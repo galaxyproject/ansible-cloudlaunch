@@ -1,1 +1,4 @@
 log_dir: /opt/cloudlaunch/logs/
+dbuser: cloudlaunch
+dbname: cloudlaunch
+dbpassword: "CHANGEMEONINSTALL"

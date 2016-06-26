@@ -1,5 +1,8 @@
 - include: system_environment.yml
   tags: sysenv
 
+- include: setup_postgres.yml
+  tags: database
+
 - include: setup_webapp.yml
   tags: webapp

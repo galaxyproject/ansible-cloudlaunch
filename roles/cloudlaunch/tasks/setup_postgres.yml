@@ -1,0 +1,8 @@
+- name: Install Postgres package
+  apt: name={{ item }} state=latest
+  with_items:
+   - postgresql
+   - postgresql-contrib
+
+- name: Start Postgres Service
+  service: name=postgresql state=started enabled=true
