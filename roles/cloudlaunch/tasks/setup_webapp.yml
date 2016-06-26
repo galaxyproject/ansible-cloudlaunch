@@ -30,7 +30,13 @@
   postgresql_user: db={{ dbname }} name={{ dbuser }} password={{ dbpassword }} priv=ALL state=present
   become: true
   become_user: postgres
-  
+
+- name: Change database password
+  replace: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py regexp="DBPWDCHANGEMEONINSTALL" replace="{{ dbpassword }}"
+  tags:
+    - install
+    - deploy
+
 - name: Django migrate
   django_manage: command=migrate app_path=/opt/cloudlaunch/django-cloudlaunch virtualenv=/opt/cloudlaunch/.venv
   tags:

@@ -30,6 +30,8 @@
     - python3-setuptools
     - python-dev
     - python3-dev
+    - libpq-dev         # For postgres psycopg2 compilation 
+    - python-psycopg2   # For postgres psycopg2 compilation
     - software-properties-common
     - wget
     - vim
