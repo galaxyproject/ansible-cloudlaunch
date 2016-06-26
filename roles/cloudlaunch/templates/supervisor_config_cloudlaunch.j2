@@ -11,9 +11,15 @@ stderr_logfile_backups=2
 autorestart=true
 
 [program:celeryd]
-command=/opt/cloudlaunch/.venv/bin/python manage.py celery -E -A cloudlaunch worker -l info --autoscale=20,2 
+command=/opt/cloudlaunch/.venv/bin/python manage.py celery -E -A cloudlaunch worker -l info --autoscale=20,2
+user = cloudlaunch
+directory=/opt/cloudlaunch/django-cloudlaunch 
 stdout_logfile={{ log_dir }}celeryd_stdout.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=2
 stderr_logfile={{ log_dir }}celeryd_stderr.log
+stderr_logfile_maxbytes=1MB
+stderr_logfile_backups=2
 autostart=true
 autorestart=true
 startsecs=10
