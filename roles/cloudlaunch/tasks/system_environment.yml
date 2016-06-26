@@ -27,6 +27,7 @@
     - python3.5-dev
     - python3-pip
     - python3-virtualenv
+    - virtualenv
     - python3-setuptools
     - python-dev
     - python3-dev
@@ -43,7 +44,7 @@
     - typings
 
 - name: Update python-setuptools
-  pip: name=setuptools state=latest
+  pip: name=setuptools state=latest executable=pip3
   
 - name: Install nginx
   apt: name={{ item }} state=latest

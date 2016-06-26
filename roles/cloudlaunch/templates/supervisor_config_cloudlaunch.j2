@@ -9,3 +9,12 @@ stderr_logfile={{ log_dir }}gunicorn_stderr.log
 stderr_logfile_maxbytes=1MB
 stderr_logfile_backups=2
 autorestart=true
+
+[program:celeryd]
+command=/opt/cloudlaunch/.venv/bin/python manage.py celery -E -A cloudlaunch worker -l info --autoscale=20,2 
+stdout_logfile={{ log_dir }}celeryd_stdout.log
+stderr_logfile={{ log_dir }}celeryd_stderr.log
+autostart=true
+autorestart=true
+startsecs=10
+stopwaitsecs=600
