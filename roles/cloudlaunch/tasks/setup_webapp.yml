@@ -16,11 +16,21 @@
   git: repo="https://github.com/galaxyproject/cloudlaunch" dest=/opt/cloudlaunch accept_hostkey=yes version=dev force=yes
 
 - name: Install server requirements
-  pip: requirements=/opt/cloudlaunch/requirements.txt virtualenv=/opt/cloudlaunch/.venv state=latest
+  pip: requirements=/opt/cloudlaunch/requirements.txt virtualenv=/opt/cloudlaunch/.venv state=latest virtualenv_python=python3.5
   tags:
     - install
     - deploy
 
+- name: Create cloudlaunch application Database
+  postgresql_db: name=cloudlaunch state=present
+  become: true
+  become_user: postgres
+
+- name: Create cloudlaunch DB User
+  postgresql_user: db={{ dbname }} name={{ dbuser }} password={{ dbpassword }} priv=ALL state=present
+  become: true
+  become_user: postgres
+  
 - name: Django migrate
   django_manage: command=migrate app_path=/opt/cloudlaunch/django-cloudlaunch virtualenv=/opt/cloudlaunch/.venv
   tags:
@@ -39,12 +49,15 @@
     - install
     - deploy
 
-- name: Also adjust Django Static URL
-  lineinfile: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py line="STATIC_URL = FORCE_SCRIPT_NAME + '/static/'"
-  tags:
-    - install
-    - deploy
-
+- name: Change ownership of cloudlaunch server to web user
+  file:
+    recurse: yes
+    path: '/opt/cloudlaunch'
+    state: 'directory'
+    owner: 'cloudlaunch'
+    group: 'cloudlaunch'
+    mode: '0755'
+    
 - name: Checkout cloudlaunch client source
   git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes force=yes
 
@@ -55,7 +68,7 @@
     - deploy
 
 - name: Adjust backend API url
-  replace: dest=/opt/cloudlaunch-ui/app/app.settings.ts regexp="http://localhost:8000/api/v1" replace="/cloudlaunch/api/v1"
+  replace: dest=/opt/cloudlaunch-ui/app/app.settings.ts regexp="http://localhost:8000" replace="/cloudlaunch"
   tags:
     - install
     - deploy
@@ -66,9 +79,18 @@
     - install
     - deploy
 
+- name: Change ownership of cloudlaunch client to web user
+  file:
+    recurse: yes
+    path: '/opt/cloudlaunch-ui'
+    state: 'directory'
+    owner: 'cloudlaunch'
+    group: 'www-data'
+    mode: '0755'
+
 - name: Ensure nginx can access static path
   file:
-    path: '/opt/cloudlaunch/djang-cloudlaunch/static/'
+    path: '/opt/cloudlaunch/django-cloudlaunch/static/'
     state: 'directory'
     group: 'www-data'
     mode: '0755'

@@ -4,7 +4,7 @@
    - supervisor
 
 - name: Make sure supervisor is running
-  service: namee=supervisor state=started
+  service: name=supervisor state=started
   
 - name: Create the Supervisor config file
   template: src=supervisor_config_cloudlaunch.j2

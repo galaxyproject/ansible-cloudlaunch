@@ -20,10 +20,6 @@ server {
         alias   /opt/cloudlaunch/django-cloudlaunch/static/;
     }
     
-    location / {
-        alias   /opt/cloudlaunch-ui/;
-    }
-    
     location /cloudlaunch {
         # an HTTP header important enough to have its own Wikipedia entry:
         #   http://en.wikipedia.org/wiki/X-Forwarded-For
@@ -56,7 +52,12 @@ server {
             break;
         }
     }
- 
+
+    location / {
+        alias   /opt/cloudlaunch-ui/;
+        try_files $uri /index.html;
+    }
+    
     # Error pages
     error_page 500 502 503 504 /500.html;
     location = /500.html {
