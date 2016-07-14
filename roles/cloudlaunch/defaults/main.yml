@@ -2,3 +2,6 @@ log_dir: /opt/cloudlaunch/logs/
 dbuser: cloudlaunch
 dbname: cloudlaunch
 dbpassword: "CHANGEMEONINSTALL"
+server_name: beta.launch.usegalaxy.org
+ssl_cert_path: /etc/nginx/ssl/cl.crt
+ssl_key_path: /etc/nginx/ssl/cl.key
