@@ -1,2 +1,14 @@
 - name: reload nginx
   service: name=nginx state=reloaded
+   
+- name: reload supervisor
+  supervisorctl: name={{ item }} state=present
+  with_items:
+    - celeryd
+    - cloudlaunch
+
+- name: restart supervisor
+  supervisorctl: name={{ item }} state=restarted
+  with_items:
+    - celeryd
+    - cloudlaunch

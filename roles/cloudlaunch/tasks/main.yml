@@ -8,4 +8,6 @@
   tags: webapp
 
 - include: setup_webui.yml
-  tags: webapp
+  tags:
+    - webapp
+    - webui

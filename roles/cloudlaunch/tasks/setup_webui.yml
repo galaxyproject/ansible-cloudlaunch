@@ -1,5 +1,5 @@
 - name: Checkout cloudlaunch client source
-  git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes force=yes
+  git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes force=yes version="ng2.0.0"
 
 - name: Install client requirements
   npm: path=/opt/cloudlaunch-ui state=latest
@@ -14,7 +14,7 @@
     - deploy
 
 - name: Build UI using angular-cli
-  shell: chdir=/opt/cloudlaunch-ui ng build
+  shell: chdir=/opt/cloudlaunch-ui npm run build
   tags:
     - install
     - deploy
@@ -27,3 +27,7 @@
     owner: 'cloudlaunch'
     group: 'www-data'
     mode: '0755'
+  notify:
+   - reload nginx
+   - reload supervisor
+   - restart supervisor
