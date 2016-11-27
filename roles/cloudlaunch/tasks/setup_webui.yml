@@ -1,5 +1,5 @@
 - name: Checkout cloudlaunch client source
-  git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes force=yes version="ng2.0.0"
+  git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes force=yes version="master"
 
 - name: Install client requirements
   npm: path=/opt/cloudlaunch-ui state=latest
