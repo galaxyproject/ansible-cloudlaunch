@@ -6,3 +6,8 @@
 
 - include: setup_webapp.yml
   tags: webapp
+
+- include: setup_webui.yml
+  tags:
+    - webapp
+    - webui
