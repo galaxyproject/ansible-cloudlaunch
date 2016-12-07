@@ -1,0 +1,30 @@
+# Dump sharable database tables to a json file and transfer to host.
+#
+# To use the resulting json file, run the following command on the server
+# where the data should be loaded:
+#   python manage.py loaddata cloudlaunch_clouds_and_apps.json
+#
+# Playbook command:
+#   ansible-playbook -i inventory dumpdb.yaml
+
+- hosts: cloudlaunch-webserver
+  gather_facts: no
+  become: yes
+
+  vars:
+    app_dir: /opt/cloudlaunch/django-cloudlaunch
+    dump_file: /tmp/clouds_and_apps.json
+    venv: /opt/cloudlaunch/.venv
+
+  tasks:
+    - name: Dump database data
+      become_user: cloudlaunch
+      command: "{{ venv }}/bin/python manage.py dumpdata --indent=2 -o {{ dump_file }} baselaunch.cloud baselaunch.aws baselaunch.ec2 baselaunch.s3 baselaunch.openstack baselaunch.image baselaunch.cloudimage baselaunch.application baselaunch.applicationversion baselaunch.ApplicationVersionCloudConfig baselaunch.tag baselaunch.sponsor baselaunch.location baselaunch.publicservice"
+      args:
+        chdir: "{{ app_dir }}"
+
+    - name: Transfer the dump file here
+      fetch:
+        src: "{{ dump_file }}"
+        dest: ./cloudlaunch_clouds_and_apps.json
+        flat: yes
