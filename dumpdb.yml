@@ -5,7 +5,7 @@
 #   python manage.py loaddata cloudlaunch_clouds_and_apps.json
 #
 # Playbook command:
-#   ansible-playbook -i inventory dumpdb.yaml
+#   ansible-playbook -i inventory dumpdb.yml
 
 - hosts: cloudlaunch-webserver
   gather_facts: no

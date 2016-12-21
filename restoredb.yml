@@ -1,0 +1,29 @@
+# Restore sharable database tables from a local json file onto to server.
+#
+# See also:
+#   dumpdb.yml
+#
+# Playbook command:
+#   ansible-playbook -i inventory restoredb.yml
+
+- hosts: cloudlaunch-webserver
+  gather_facts: no
+  become: yes
+
+  vars:
+    app_dir: /opt/cloudlaunch/django-cloudlaunch
+    dump_file: /tmp/clouds_and_apps.json
+    venv: /opt/cloudlaunch/.venv
+
+  tasks:
+    - name: Transfer the dump file to remote server
+      copy:
+        src: "./cloudlaunch_clouds_and_apps.json"
+        dest: "{{ dump_file }}"
+
+    - name: Restore database data
+      become_user: cloudlaunch
+      command: "{{ venv }}/bin/python manage.py loaddata {{ dump_file }}"
+      args:
+        chdir: "{{ app_dir }}"
+
