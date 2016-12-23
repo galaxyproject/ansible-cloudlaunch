@@ -15,6 +15,13 @@
 - name: Checkout cloudlaunch server source
   git: repo="https://github.com/galaxyproject/cloudlaunch" dest=/opt/cloudlaunch accept_hostkey=yes version=dev force=yes
 
+- name: Update setuptools inside venv
+  pip:
+    name: setuptools
+    virtualenv: /opt/cloudlaunch/.venv
+    state: latest
+    virtualenv_python: python3.5
+
 - name: Install server requirements
   pip: requirements=/opt/cloudlaunch/requirements.txt virtualenv=/opt/cloudlaunch/.venv state=latest virtualenv_python=python3.5
   tags:
@@ -32,7 +39,7 @@
   become_user: postgres
 
 - name: Change database password
-  replace: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py regexp="DBPWDCHANGEMEONINSTALL" replace="{{ dbpassword }}"
+  replace: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py regexp="DBPWDCHANGEMEONINSTALL" replace="{{ dbpassword }}"  #"
   tags:
     - install
     - deploy
@@ -63,7 +70,7 @@
     owner: 'cloudlaunch'
     group: 'cloudlaunch'
     mode: '0755'
-    
+
 - name: Ensure nginx can access static path
   file:
     path: '/opt/cloudlaunch/django-cloudlaunch/static/'
@@ -87,5 +94,5 @@
   file: src=/etc/nginx/sites-available/cloudlaunch.org dest=/etc/nginx/sites-enabled/cloudlaunch.org state=link
   notify:
    - reload nginx
-   
+
 - include: setup_supervisor.yml
