@@ -49,12 +49,6 @@
     - install
     - deploy
 
-- name: Make Django app run under subpath
-  lineinfile: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py line="FORCE_SCRIPT_NAME='/cloudlaunch'"
-  tags:
-    - install
-    - deploy
-
 - name: Change ownership of cloudlaunch server to web user
   file:
     recurse: yes

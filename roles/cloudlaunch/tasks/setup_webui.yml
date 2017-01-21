@@ -8,7 +8,7 @@
     - deploy
 
 - name: Adjust backend API url
-  replace: dest=/opt/cloudlaunch-ui/src/app/app.settings.ts regexp="http://localhost:8000" replace="/cloudlaunch"
+  replace: dest=/opt/cloudlaunch-ui/src/app/app.settings.ts regexp="return ''" replace="return '/cloudlaunch'"
   tags:
     - install
     - deploy
