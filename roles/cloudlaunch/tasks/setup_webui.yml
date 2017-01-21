@@ -1,20 +1,38 @@
 - name: Checkout cloudlaunch client source
-  git: repo="https://github.com/galaxyproject/cloudlaunch-ui" dest=/opt/cloudlaunch-ui accept_hostkey=yes force=yes version="master"
+  git:
+    repo: https://github.com/galaxyproject/cloudlaunch-ui
+    dest: /opt/cloudlaunch-ui
+    accept_hostkey: yes
+    force: yes
+    version: master
+  register: gitout
+
+- name: Git update output  # Enable with -v flag to ansible-playbook
+  debug:
+    var: gitout
+    verbosity: 1
 
 - name: Install client requirements
-  npm: path=/opt/cloudlaunch-ui state=latest
+  npm:
+    path: /opt/cloudlaunch-ui
+    state: latest
   tags:
     - install
     - deploy
 
 - name: Adjust backend API url
-  replace: dest=/opt/cloudlaunch-ui/src/app/app.settings.ts regexp="return ''" replace="return '/cloudlaunch'"
+  replace:
+    dest: /opt/cloudlaunch-ui/src/app/app.settings.ts
+    regexp: "return ''"
+    replace: "return '/cloudlaunch'"
   tags:
     - install
     - deploy
 
 - name: Build UI using angular-cli
-  shell: chdir=/opt/cloudlaunch-ui npm run build
+  shell: npm run build
+  args:
+    chdir: /opt/cloudlaunch-ui
   tags:
     - install
     - deploy
@@ -22,11 +40,11 @@
 - name: Change ownership of cloudlaunch client to web user
   file:
     recurse: yes
-    path: '/opt/cloudlaunch-ui/dist'
-    state: 'directory'
-    owner: 'cloudlaunch'
-    group: 'www-data'
-    mode: '0755'
+    path: /opt/cloudlaunch-ui/dist
+    state: directory
+    owner: cloudlaunch
+    group: www-data
+    mode: 0755
   notify:
    - reload nginx
    - reload supervisor
