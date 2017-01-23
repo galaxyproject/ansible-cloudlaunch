@@ -2,7 +2,6 @@ upstream cloudlaunch_server {
   # fail_timeout=0 means we always retry an upstream even if it failed
   # to return a good HTTP response (in case the Unicorn master nukes a
   # single worker for timing out).
-  proxy_set_header SCRIPT_NAME /cloudlaunch;
   server 127.0.0.1:8000 fail_timeout=0;
 }
 
@@ -36,6 +35,7 @@ server {
         # an HTTP header important enough to have its own Wikipedia entry:
         #   http://en.wikipedia.org/wiki/X-Forwarded-For
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header SCRIPT_NAME /cloudlaunch;
 
         # enable this if and only if you use HTTPS, this helps Rack
         # set the proper protocol for doing redirects:
