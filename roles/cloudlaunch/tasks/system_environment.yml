@@ -4,25 +4,6 @@
     - ppa:fkrull/deadsnakes
     - ppa:ansible/ansible
 
-- name: Update APT cache
-  apt: update_cache=yes
-
-- name: Install setuptools
-  apt: pkg={{ item }} state=latest install_recommends=no force=yes
-  with_items:
-    - python-setuptools
-    - python-dev
-    - python-pip
-
-- name: Install Python packages for SSL cert verification
-  pip:
-    name: "{{ item }}"
-  with_items:
-    - urllib3
-    - pyopenssl
-    - ndg-httpsclient
-    - pyasn1
-
 - name: Add NodeSource repository for Node.js 6.0
   apt_repository: repo='{{ item }} https://deb.nodesource.com/node_6.x {{ ansible_distribution_release|lower }} main' state=present update_cache=no
   with_items:
@@ -42,6 +23,7 @@
   apt: pkg={{ item }} state=latest install_recommends=no force=yes
   with_items:
     - ansible
+    - fail2ban
     - gcc
     - git-core
     - libffi-dev
@@ -51,8 +33,7 @@
     - python3.5
     - python3.5-dev
     - python3-pip
-    - python3.5-venv
-    - python-virtualenv
+    - virtualenv
     - python3-setuptools
     - python-dev
     - python3-dev
@@ -80,6 +61,19 @@
   file: path=/etc/nginx/sites-enabled/default state=absent
   notify:
    - reload nginx
+
+- name: Ensure nginx ssl dir exists
+  file:
+    path: /etc/nginx/ssl
+    state: directory
+    mode: 0500
+
+- name: Place SSL cert files
+  copy:
+    src: "../files/secret/{{ item }}"
+    dest: /etc/nginx/ssl/.
+    mode: 0400
+  with_items: "{{ ssl_cert_files | default([]) }}"
 
 - name: Start the nginx service
   service: name=nginx state=started enabled=yes

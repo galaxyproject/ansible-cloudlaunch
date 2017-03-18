@@ -23,7 +23,11 @@
     virtualenv_python: python3.5
 
 - name: Install server requirements
-  pip: requirements=/opt/cloudlaunch/requirements.txt virtualenv=/opt/cloudlaunch/.venv state=latest virtualenv_python=python3.5
+  pip:
+    requirements: /opt/cloudlaunch/requirements.txt
+    virtualenv: /opt/cloudlaunch/.venv
+    state: latest
+    virtualenv_python: python3.5
   tags:
     - install
     - deploy
