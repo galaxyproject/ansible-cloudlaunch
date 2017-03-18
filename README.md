@@ -17,9 +17,13 @@ Create the inventory file to point to the server you want to configure:
 149.165.157.111 ansible_ssh_user="ubuntu" ansible_ssh_private_key_file="key.pem" ansible_ssh_common_args='-o StrictHostKeyChecking=no -o CheckHostIP=no -o "UserKnownHostsFile /dev/null"'
 ```
 
-Edit the configuration vaules. In particular, the database password and the server name should be changed. You will also need to provide your own SSL cert files. The default values are stored in
-`roles/cloudlaunch/defaults.yml` but you can also use `local_vars.yml` file in
-the repo root directory (as defined in `playbook.yml`) to change the most frequently edited values:
+Edit the configuration values. In particular, the database password and the
+server name should be changed. You will also need to provide your own SSL cert
+files. The default values are stored in `roles/cloudlaunch/defaults.yml` but
+you should use `local_vars.yml` file in the repo root directory (as defined
+in `playbook.yml`) to change the most frequently edited values. Note that this
+file must exist for the playbook to run. Here is an example of that file's
+content:
 
 ```
 dbpassword: "CHANGEMEONINSTALL"
