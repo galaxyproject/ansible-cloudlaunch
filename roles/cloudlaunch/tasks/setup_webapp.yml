@@ -13,7 +13,7 @@
 
 - name: Create cloudlaunch directories
   file:
-    path: '/opt/cloudlaunch'
+    path: "{{ server_install_dir }}"
     state: 'directory'
     owner: 'cloudlaunch'
     group: 'cloudlaunch'
@@ -22,21 +22,21 @@
 - name: Checkout cloudlaunch server source
   git:
     repo: "https://github.com/galaxyproject/cloudlaunch"
-    dest: /opt/cloudlaunch
+    dest: "{{ server_install_dir }}"
     accept_hostkey: yes
     force: yes
 
 - name: Update setuptools inside venv
   pip:
     name: setuptools
-    virtualenv: /opt/cloudlaunch/.venv
+    virtualenv: "{{ server_venv }}"
     state: latest
     virtualenv_python: python3.5
 
 - name: Install server requirements
   pip:
-    requirements: /opt/cloudlaunch/requirements.txt
-    virtualenv: /opt/cloudlaunch/.venv
+    requirements: "{{ server_install_dir }}/requirements.txt"
+    virtualenv: "{{ server_venv }}"
     state: latest
     virtualenv_python: python3.5
   tags:
@@ -62,7 +62,7 @@
 
 - name: Change database password
   replace:
-    dest: /opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py
+    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/settings.py"
     regexp: "DBPWDCHANGEMEONINSTALL"
     replace: "{{ dbpassword }}"
   tags:
@@ -72,8 +72,8 @@
 - name: Django migrate
   django_manage:
     command: migrate
-    app_path: /opt/cloudlaunch/django-cloudlaunch
-    virtualenv: /opt/cloudlaunch/.venv
+    app_path: "{{ server_install_dir }}/django-cloudlaunch"
+    virtualenv: "{{ server_venv }}"
   tags:
     - install
     - deploy
@@ -81,8 +81,8 @@
 - name: Django collectstatic
   django_manage:
     command: collectstatic
-    app_path: /opt/cloudlaunch/django-cloudlaunch
-    virtualenv: /opt/cloudlaunch/.venv
+    app_path: "{{ server_install_dir }}/django-cloudlaunch"
+    virtualenv: "{{ server_venv }}"
   tags:
     - install
     - deploy
@@ -90,7 +90,7 @@
 - name: Change ownership of cloudlaunch server to web user
   file:
     recurse: yes
-    path: '/opt/cloudlaunch'
+    path: "{{ server_install_dir }}"
     state: 'directory'
     owner: 'cloudlaunch'
     group: 'cloudlaunch'
@@ -98,7 +98,7 @@
 
 - name: Ensure nginx can access static path
   file:
-    path: '/opt/cloudlaunch/django-cloudlaunch/static/'
+    path: "{{ server_install_dir }}/django-cloudlaunch/static/"
     state: 'directory'
     group: 'www-data'
     mode: '0755'

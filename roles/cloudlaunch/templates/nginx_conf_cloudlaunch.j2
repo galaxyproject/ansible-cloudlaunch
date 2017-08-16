@@ -29,7 +29,7 @@ server {
     error_log {{ log_dir }}nginx-error.log;
 
     location /static/ {
-        alias   /opt/cloudlaunch/django-cloudlaunch/static/;
+        alias   {{ server_install_dir }}/django-cloudlaunch/static/;
     }
 
     location /cloudlaunch {
@@ -67,13 +67,13 @@ server {
     }
 
     location / {
-        alias   /opt/cloudlaunch-ui/dist/;
+        alias   {{ ui_install_dir }}/dist/;
         try_files $uri /index.html;
     }
 
     # Error pages
     error_page 500 502 503 504 /500.html;
     location = /500.html {
-        root /opt/cloudlaunch/django-cloudlaunch/static/;
+        root {{ server_install_dir }}/django-cloudlaunch/static/;
     }
 }

@@ -2,7 +2,7 @@
 - name: Checkout cloudlaunch client source
   git:
     repo: https://github.com/galaxyproject/cloudlaunch-ui
-    dest: /opt/cloudlaunch-ui
+    dest: "{{ ui_install_dir }}"
     accept_hostkey: yes
     force: yes
     version: master
@@ -15,7 +15,7 @@
 
 - name: Install client requirements
   npm:
-    path: /opt/cloudlaunch-ui
+    path: "{{ ui_install_dir }}"
     state: latest
   tags:
     - install
@@ -23,7 +23,7 @@
 
 - name: Adjust backend API url
   replace:
-    dest: /opt/cloudlaunch-ui/src/app/app.settings.ts
+    dest: "{{ ui_install_dir }}/src/app/app.settings.ts"
     regexp: "return ''"
     replace: "return '/cloudlaunch'"
   tags:
@@ -33,7 +33,7 @@
 - name: Build UI using angular-cli
   shell: npm run build
   args:
-    chdir: /opt/cloudlaunch-ui
+    chdir: "{{ ui_install_dir }}"
   tags:
     - install
     - deploy
@@ -41,7 +41,7 @@
 - name: Change ownership of cloudlaunch client to web user
   file:
     recurse: yes
-    path: /opt/cloudlaunch-ui/dist
+    path: "{{ ui_install_dir }}/dist"
     state: directory
     owner: cloudlaunch
     group: www-data
