@@ -1,4 +1,5 @@
-log_dir: /opt/cloudlaunch/logs/
+---
+log_dir: /var/log/cloudlaunch/
 dbuser: cloudlaunch
 dbname: cloudlaunch
 dbpassword: "CHANGEMEONINSTALL"
@@ -9,3 +10,4 @@ ssl_cert_files:  # These files need to be placed into files/secret and vaulted
   - beta.launch.usegalaxy.org_certchain.pem
   - cl.crt
   - cl.key
+...

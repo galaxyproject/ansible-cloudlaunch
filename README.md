@@ -10,7 +10,8 @@ git clone https://github.com/galaxyproject/ansible-cloudlaunch.git
 ## Use
 This playbook is intended to run on Ubuntu 16.04, using Ansible 2.2.1.0.
 
-Create the inventory file to point to the server you want to configure:
+Create the inventory file called `inventory` to point to the server you want
+to configure with the following content, adjusting for variables:
 
 ```
 [cloudlaunch-webserver]
@@ -35,7 +36,7 @@ ssl_cert_files:
   - cl.key
 ```
 
-Store the vault password to `.vault_file` in the repo root dir and run the
+Store the vault password to `.vault_pass` in the repo root dir and run the
 playbook with the following command:
 
 ```

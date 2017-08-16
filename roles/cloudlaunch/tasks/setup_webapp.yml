@@ -1,8 +1,15 @@
+---
 - name: Create cloudlaunch user group
-  group: name=cloudlaunch state=present
+  group:
+    name: cloudlaunch
+    state: present
 
 - name: Create cloudlaunch user
-  user: name=cloudlaunch comment="Cloudlaunch Web User" group=cloudlaunch shell=/bin/bash
+  user:
+    name: cloudlaunch
+    comment: "Cloudlaunch Web User"
+    group: cloudlaunch
+    shell: /bin/bash
 
 - name: Create cloudlaunch directories
   file:
@@ -13,7 +20,11 @@
     mode: '0755'
 
 - name: Checkout cloudlaunch server source
-  git: repo="https://github.com/galaxyproject/cloudlaunch" dest=/opt/cloudlaunch accept_hostkey=yes version=dev force=yes
+  git:
+    repo: "https://github.com/galaxyproject/cloudlaunch"
+    dest: /opt/cloudlaunch
+    accept_hostkey: yes
+    force: yes
 
 - name: Update setuptools inside venv
   pip:
@@ -32,30 +43,46 @@
     - install
     - deploy
 
-- name: Create cloudlaunch application Database
-  postgresql_db: name=cloudlaunch state=present
+- name: Create cloudlaunch application database
+  postgresql_db:
+    name: cloudlaunch
+    state: present
   become: true
   become_user: postgres
 
-- name: Create cloudlaunch DB User
-  postgresql_user: db={{ dbname }} name={{ dbuser }} password={{ dbpassword }} priv=ALL state=present
+- name: Create cloudlaunch DB user
+  postgresql_user:
+    db: "{{ dbname }}"
+    name: "{{ dbuser }}"
+    password: "{{ dbpassword }}"
+    priv: ALL
+    state: present
   become: true
   become_user: postgres
 
 - name: Change database password
-  replace: dest=/opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py regexp="DBPWDCHANGEMEONINSTALL" replace="{{ dbpassword }}"  #"
+  replace:
+    dest: /opt/cloudlaunch/django-cloudlaunch/cloudlaunch/settings.py
+    regexp: "DBPWDCHANGEMEONINSTALL"
+    replace: "{{ dbpassword }}"
   tags:
     - install
     - deploy
 
 - name: Django migrate
-  django_manage: command=migrate app_path=/opt/cloudlaunch/django-cloudlaunch virtualenv=/opt/cloudlaunch/.venv
+  django_manage:
+    command: migrate
+    app_path: /opt/cloudlaunch/django-cloudlaunch
+    virtualenv: /opt/cloudlaunch/.venv
   tags:
     - install
     - deploy
 
 - name: Django collectstatic
-  django_manage: command=collectstatic app_path=/opt/cloudlaunch/django-cloudlaunch virtualenv=/opt/cloudlaunch/.venv
+  django_manage:
+    command: collectstatic
+    app_path: /opt/cloudlaunch/django-cloudlaunch
+    virtualenv: /opt/cloudlaunch/.venv
   tags:
     - install
     - deploy
@@ -84,13 +111,19 @@
     mode: '0755'
 
 - name: Copy the nginx configuration file
-  template: src=nginx_conf_cloudlaunch.j2 dest=/etc/nginx/sites-available/cloudlaunch.org
+  template:
+    src: nginx_conf_cloudlaunch.j2
+    dest: /etc/nginx/sites-available/cloudlaunch.org
   notify:
    - reload nginx
 
 - name: Symlink to nginx available sites
-  file: src=/etc/nginx/sites-available/cloudlaunch.org dest=/etc/nginx/sites-enabled/cloudlaunch.org state=link
+  file:
+    src: /etc/nginx/sites-available/cloudlaunch.org
+    dest: /etc/nginx/sites-enabled/cloudlaunch.org
+    state: link
   notify:
    - reload nginx
 
 - include: setup_supervisor.yml
+...

@@ -1,14 +1,19 @@
-- name: Install supervisor package
-  apt: name={{ item }} state=latest
-  with_items:
-   - supervisor
+---
+- name: Install Supervisor package
+  apt:
+    name: supervisor
+    state: latest
 
-- name: Make sure supervisor is running
-  service: name=supervisor state=started
-  
+- name: Make sure Supervisor is running
+  service:
+    name: supervisor
+    state: started
+
 - name: Create the Supervisor config file
-  template: src=supervisor_config_cloudlaunch.j2
-            dest=/etc/supervisor/conf.d/cloudlaunch.conf
+  template:
+    src: supervisor_config_cloudlaunch.j2
+    dest: /etc/supervisor/conf.d/cloudlaunch.conf
   notify:
    - reload supervisor
    - restart supervisor
+...

@@ -1,11 +1,17 @@
+---
 - name: Add latest Python and Ansible PPAs
-  apt_repository: repo={{ item }} update_cache=no
+  apt_repository:
+    repo: "{{ item }}"
+    update_cache: no
   with_items:
     - ppa:fkrull/deadsnakes
     - ppa:ansible/ansible
 
 - name: Add NodeSource repository for Node.js 6.0
-  apt_repository: repo='{{ item }} https://deb.nodesource.com/node_6.x {{ ansible_distribution_release|lower }} main' state=present update_cache=no
+  apt_repository:
+    repo: '{{ item }} https://deb.nodesource.com/node_6.x {{ ansible_distribution_release|lower }} main'
+    state: present
+    update_cache: no
   with_items:
     - deb
     - deb-src
@@ -20,7 +26,11 @@
   apt: update_cache=yes
 
 - name: Install system packages
-  apt: pkg={{ item }} state=latest install_recommends=no force=yes
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    install_recommends: no
+    force: yes
   with_items:
     - ansible
     - fail2ban
@@ -28,37 +38,40 @@
     - git-core
     - libffi-dev
     - libncurses5-dev
+    - libpq-dev         # For postgres psycopg2 compilation
     - libssl-dev
+    - nginx
     - nodejs
+    - python-dev
+    - python-psycopg2   # For postgres psycopg2 compilation
+    - python3-dev
+    - python3-pip
+    - python3-setuptools
     - python3.5
     - python3.5-dev
-    - python3-pip
-    - virtualenv
-    - python3-setuptools
-    - python-dev
-    - python3-dev
-    - libpq-dev         # For postgres psycopg2 compilation
-    - python-psycopg2   # For postgres psycopg2 compilation
     - software-properties-common
-    - wget
     - vim
+    - virtualenv
+    - wget
 
 - name: Install global npm packages
-  npm: name={{ item }} global=yes
+  npm:
+    name: "{{ item }}"
+    global: yes
   with_items:
     - tsd
     - typings
 
 - name: Update python-setuptools
-  pip: name=setuptools state=latest executable=pip3
-
-- name: Install nginx
-  apt: name={{ item }} state=latest
-  with_items:
-   - nginx
+  pip:
+    name: setuptools
+    state: latest
+    executable: pip3
 
 - name: Remove default nginx site
-  file: path=/etc/nginx/sites-enabled/default state=absent
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
   notify:
    - reload nginx
 
@@ -76,4 +89,8 @@
   with_items: "{{ ssl_cert_files | default([]) }}"
 
 - name: Start the nginx service
-  service: name=nginx state=started enabled=yes
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+...

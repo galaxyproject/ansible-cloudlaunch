@@ -1,0 +1,4 @@
+/.vault_pass
+inventory
+local_vars.yml
+playbook.retry

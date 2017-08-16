@@ -1,3 +1,4 @@
+---
 - name: Checkout cloudlaunch client source
   git:
     repo: https://github.com/galaxyproject/cloudlaunch-ui
@@ -49,3 +50,4 @@
    - reload nginx
    - reload supervisor
    - restart supervisor
+...
