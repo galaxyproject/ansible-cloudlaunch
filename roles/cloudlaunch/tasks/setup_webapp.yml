@@ -1,22 +1,22 @@
 ---
 - name: Create cloudlaunch user group
   group:
-    name: cloudlaunch
+    name: "{{ system_group }}"
     state: present
 
 - name: Create cloudlaunch user
   user:
-    name: cloudlaunch
+    name: "{{ system_user }}"
     comment: "Cloudlaunch Web User"
-    group: cloudlaunch
+    group: "{{ system_group }}"
     shell: /bin/bash
 
 - name: Create cloudlaunch directories
   file:
     path: "{{ server_install_dir }}"
     state: 'directory'
-    owner: 'cloudlaunch'
-    group: 'cloudlaunch'
+    owner: "{{ system_user }}"
+    group: "{{ system_group }}"
     mode: '0755'
 
 - name: Checkout cloudlaunch server source
@@ -45,7 +45,7 @@
 
 - name: Create cloudlaunch application database
   postgresql_db:
-    name: cloudlaunch
+    name: "{{ dbname }}"
     state: present
   become: true
   become_user: postgres
@@ -92,8 +92,8 @@
     recurse: yes
     path: "{{ server_install_dir }}"
     state: 'directory'
-    owner: 'cloudlaunch'
-    group: 'cloudlaunch'
+    owner: "{{ system_user }}"
+    group: "{{ system_group }}"
     mode: '0755'
 
 - name: Ensure nginx can access static path

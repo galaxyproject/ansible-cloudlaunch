@@ -1,6 +1,6 @@
 [program:cloudlaunch]
 command={{ server_install_dir }}/.venv/bin/gunicorn cloudlaunch.wsgi:application --bind 127.0.0.1:8000 --pid /tmp/gunicorn.pid;
-user = cloudlaunch
+user={{ system_user }}
 directory={{ server_install_dir }}/django-cloudlaunch
 stdout_logfile={{ log_dir }}gunicorn_stdout.log
 stdout_logfile_maxbytes=1MB
@@ -12,8 +12,8 @@ autorestart=true
 
 [program:celeryd]
 command={{ server_install_dir }}/.venv/bin/python manage.py celery -E -A cloudlaunch worker -l info --autoscale=20,2
-user = cloudlaunch
-directory={{ server_install_dir }}/django-cloudlaunch 
+user={{ system_user }}
+directory={{ server_install_dir }}/django-cloudlaunch
 stdout_logfile={{ log_dir }}celeryd_stdout.log
 stdout_logfile_maxbytes=1MB
 stdout_logfile_backups=2

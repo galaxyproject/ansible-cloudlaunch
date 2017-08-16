@@ -3,6 +3,8 @@ server_install_dir: /opt/cloudlaunch-server
 server_venv: "{{ server_install_dir }}/.venv"
 ui_install_dir: /opt/cloudlaunch-ui
 log_dir: /var/log/cloudlaunch/
+system_user: cloudlaunch
+system_group: cloudlaunch
 dbuser: cloudlaunch
 dbname: cloudlaunch
 dbpassword: "CHANGEMEONINSTALL"
