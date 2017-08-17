@@ -4,6 +4,9 @@
 - include: setup_postgres.yml
   tags: database
 
+- include: setup_rabbitmq.yml
+  tags: broker
+
 - include: setup_webapp.yml
   tags: webapp
 

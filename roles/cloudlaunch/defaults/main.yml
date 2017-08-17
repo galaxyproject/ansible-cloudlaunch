@@ -5,6 +5,8 @@ ui_install_dir: /opt/cloudlaunch-ui
 log_dir: /var/log/cloudlaunch/
 system_user: cloudlaunch
 system_group: cloudlaunch
+broker_user: cloudlaunch
+broker_pwd: "BROKERPWDTOCHANGE"
 dbuser: cloudlaunch
 dbname: cloudlaunch
 dbpassword: "CHANGEMEONINSTALL"

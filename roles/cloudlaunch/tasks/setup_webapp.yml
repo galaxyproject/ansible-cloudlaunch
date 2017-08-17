@@ -69,6 +69,15 @@
     - install
     - deploy
 
+- name: Change broker password
+  replace:
+    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/celeryconfig.py"
+    regexp: "django://"
+    replace: "amqp://{{ broker_user }}:{{ broker_pwd }}@localhost:5672/"
+  tags:
+    - install
+    - deploy
+
 - name: Django migrate
   django_manage:
     command: migrate

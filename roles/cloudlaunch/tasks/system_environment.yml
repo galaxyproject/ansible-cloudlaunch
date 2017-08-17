@@ -33,6 +33,7 @@
     install_recommends: no
     force: yes
   with_items:
+    - acl
     - ansible
     - fail2ban
     - gcc

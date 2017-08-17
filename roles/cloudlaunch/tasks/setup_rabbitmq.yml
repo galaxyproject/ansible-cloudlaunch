@@ -1,0 +1,39 @@
+---
+- name: Add RabbitMQ official apt repository
+  apt_repository:
+    repo: 'deb http://www.rabbitmq.com/debian/ testing main'
+    state: present
+
+- name: Add trusted key
+  apt_key:
+    url: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+    state: present
+
+- name: Install RabbitMQ system package
+  apt:
+    name: rabbitmq-server
+    update_cache: yes
+    state: installed
+
+- name: Enable RabbitMQ plugins
+  rabbitmq_plugin:
+    names: rabbitmq_management
+    state: enabled
+  notify:
+  - restart rabbitmq
+
+- name: Add user
+  rabbitmq_user:
+    user: "{{ broker_user }}"
+    password: "{{ broker_pwd }}"
+    vhost: /
+    configure_priv: .*
+    write_priv: .*
+    read_priv: .*
+    state: present
+
+- name: Remove default guest user
+  rabbitmq_user:
+    user: guest
+    state: absent
+...
