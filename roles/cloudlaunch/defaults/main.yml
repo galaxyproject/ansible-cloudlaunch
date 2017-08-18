@@ -5,11 +5,15 @@ ui_install_dir: /opt/cloudlaunch-ui
 log_dir: /var/log/cloudlaunch/
 system_user: cloudlaunch
 system_group: cloudlaunch
+
 broker_user: cloudlaunch
 broker_pwd: "BROKERPWDTOCHANGE"
+task_time_limit: 4000
+
 dbuser: cloudlaunch
 dbname: cloudlaunch
 dbpassword: "CHANGEMEONINSTALL"
+
 server_name: beta.launch.usegalaxy.org
 ssl_cert_path: /etc/nginx/ssl/cl.crt
 ssl_key_path: /etc/nginx/ssl/cl.key
