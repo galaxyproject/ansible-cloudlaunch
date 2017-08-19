@@ -96,6 +96,18 @@
     - install
     - deploy
 
+- name: Set skey
+  replace:
+    path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/settings.py"
+    regexp: "(CHANGEthisONinstall|{{ old_skey }})"
+    replace: "{{ skey }}"
+
+- name: Set fernet keys
+  lineinfile:
+    path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/settings.py"
+    regexp: "^FERNET_KEYS="
+    line: "FERNET_KEYS={{ fernet_keys }}"
+
 - name: Change ownership of cloudlaunch server to web user
   file:
     recurse: yes
