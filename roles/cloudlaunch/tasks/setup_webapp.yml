@@ -25,6 +25,8 @@
     dest: "{{ server_install_dir }}"
     accept_hostkey: yes
     force: yes
+  notify:
+    - restart supervisor
 
 - name: Update setuptools inside venv
   pip:
