@@ -40,7 +40,7 @@ Store the vault password to `.vault_pass` in the repo root dir and run the
 playbook with the following command:
 
 ```
-$ ansible-playbook -i inventory playbook.yml --vault-password-file=.vault_pass
+$ ansible-playbook -i inventory playbook.yml
 ```
 
 ## Copying the database from server1 to server2
