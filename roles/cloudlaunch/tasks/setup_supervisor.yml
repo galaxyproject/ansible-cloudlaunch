@@ -9,6 +9,14 @@
     name: supervisor
     state: started
 
+- name: Ensure cloudlaunch run dir exists
+  file:
+    path: /var/run/cloudlaunch
+    owner: "{{ system_user }}"
+    group: "{{ system_group }}"
+    state: directory
+    mode: 0755
+
 - name: Create the Supervisor config file
   template:
     src: supervisor_config_cloudlaunch.j2
