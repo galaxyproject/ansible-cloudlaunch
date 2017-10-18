@@ -64,7 +64,7 @@
 
 - name: Change database password
   replace:
-    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/settings.py"
+    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
     regexp: "DBPWDCHANGEMEONINSTALL"
     replace: "{{ dbpassword }}"
   tags:
@@ -73,7 +73,7 @@
 
 - name: Change broker password
   replace:
-    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/celeryconfig.py"
+    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/celeryconfig.py"
     regexp: "django://"
     replace: "amqp://{{ broker_user }}:{{ broker_pwd }}@localhost:5672/"
   tags:
@@ -100,13 +100,13 @@
 
 - name: Set skey
   replace:
-    path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/settings.py"
+    path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
     regexp: "(CHANGEthisONinstall|{{ old_skey }})"
     replace: "{{ skey }}"
 
 - name: Set fernet keys
   lineinfile:
-    path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunch/settings.py"
+    path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
     regexp: "^FERNET_KEYS="
     line: "FERNET_KEYS={{ fernet_keys }}"
 
