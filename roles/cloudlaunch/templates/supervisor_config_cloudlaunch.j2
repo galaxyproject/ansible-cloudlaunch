@@ -11,7 +11,7 @@ stderr_logfile_backups=5
 autorestart=true
 
 [program:celeryd]
-command={{ server_install_dir }}/.venv/bin/python manage.py celery worker --app=cloudlaunchserver --beat --loglevel=INFO --autoscale=20,2  --soft-time-limit={{ task_time_limit }}
+command={{ server_install_dir }}/.venv/bin/celery worker --app=cloudlaunchserver --beat --loglevel=INFO --autoscale=20,2 --soft-time-limit={{ task_time_limit }}
 user={{ system_user }}
 directory={{ server_install_dir }}/django-cloudlaunch
 stdout_logfile={{ log_dir }}celeryd_stdout.log

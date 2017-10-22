@@ -74,8 +74,8 @@
 - name: Change broker password
   replace:
     dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/celeryconfig.py"
-    regexp: "django://"
-    replace: "amqp://{{ broker_user }}:{{ broker_pwd }}@localhost:5672/"
+    regexp: "broker_url = 'redis://localhost:6379/0'"
+    replace: "broker_url = 'amqp://{{ broker_user }}:{{ broker_pwd }}@localhost:5672/'"
   tags:
     - install
     - deploy
