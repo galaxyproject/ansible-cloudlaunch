@@ -11,9 +11,9 @@
   become: yes
 
   vars:
-    app_dir: /opt/cloudlaunch/django-cloudlaunch
+    app_dir: /opt/cloudlaunch-server/django-cloudlaunch
     dump_file: /tmp/clouds_and_apps.json
-    venv: /opt/cloudlaunch/.venv
+    venv: /opt/cloudlaunch-server/.venv
 
   tasks:
     - name: Transfer the dump file to remote server
