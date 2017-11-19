@@ -31,7 +31,15 @@
     - deploy
 
 - name: Build UI using angular-cli
-  shell: npm run build
+  shell: npm run buildprod
+  args:
+    chdir: "{{ ui_install_dir }}"
+  tags:
+    - install
+    - deploy
+
+- name: Create gzipped version of distribution files so nginx can serve them (gzip_static option in nginx)
+  shell: "gzip -k -r {{ ui_install_dir }}/dist"
   args:
     chdir: "{{ ui_install_dir }}"
   tags:

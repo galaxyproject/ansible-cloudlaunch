@@ -22,8 +22,23 @@ server {
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # omit SSLv3 because of POODLE (CVE‑2014‑3566)
 
     client_max_body_size 4G;
+    gzip on;
     gzip_proxied any;
-    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+    gzip_comp_level 6;
+    gzip_min_length 1100;
+    gzip_buffers 16 8k;
+    gzip_types
+        text/plain
+        text/css
+        text/js
+        text/xml
+        text/javascript
+        application/javascript
+        application/x-javascript
+        application/json
+        application/xml
+        application/rss+xml
+        image/svg+xml;
 
     access_log {{ log_dir }}nginx-access.log;
     error_log {{ log_dir }}nginx-error.log;
