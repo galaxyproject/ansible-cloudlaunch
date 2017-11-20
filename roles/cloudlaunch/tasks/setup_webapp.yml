@@ -98,6 +98,22 @@
     - install
     - deploy
 
+- name: Check if django superuser exists
+  django_manage:
+    app_path: "{{ server_install_dir }}/django-cloudlaunch"
+    virtualenv: "{{ server_venv }}"
+    command: shell -c 'import sys; from django.contrib.auth import get_user_model; User = get_user_model(); sys.exit(0 if User.objects.filter(username="{{ cloudlaunch_admin_user }}").count() > 0 else 1)'
+  register: checksuperuser
+  ignore_errors: True
+  changed_when: False
+
+- name: django create superuser
+  django_manage:
+    app_path: "{{ server_install_dir }}/django-cloudlaunch"
+    virtualenv: "{{ server_venv }}"
+    command: shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('{{ cloudlaunch_admin_user }}', '{{ cloudlaunch_admin_email }}', '{{ cloudlaunch_admin_password }}')"
+  when: checksuperuser.failed
+
 - name: Set skey
   replace:
     path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"

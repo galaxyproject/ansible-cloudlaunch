@@ -14,6 +14,11 @@ dbuser: cloudlaunch
 dbname: cloudlaunch
 dbpassword: "CHANGEMEONINSTALL"
 
+# Django settings
+cloudlaunch_admin_user: cloudlaunch
+cloudlaunch_admin_email: "admin@{{ inventory_hostname }}"
+cloudlaunch_admin_password: "CHANGEMEONINSTALL"
+
 server_name: beta.launch.usegalaxy.org
 ssl_cert_path: /etc/nginx/ssl/cl.crt
 ssl_key_path: /etc/nginx/ssl/cl.key
