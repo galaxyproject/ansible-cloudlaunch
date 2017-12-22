@@ -779,6 +779,17 @@
   }
 },
 {
+  "model": "cloudlaunch.image",
+  "pk": 102,
+  "fields": {
+    "added": "2017-12-21T18:45:36.595Z",
+    "updated": "2017-12-21T18:45:36.595Z",
+    "name": "Ubuntu 16.04 (bare)",
+    "image_id": "ami-aa2ea6d0",
+    "description": "Amazon-recommended image"
+  }
+},
+{
   "model": "cloudlaunch.cloudimage",
   "pk": 1,
   "fields": {
@@ -1010,11 +1021,18 @@
   }
 },
 {
+  "model": "cloudlaunch.cloudimage",
+  "pk": 102,
+  "fields": {
+    "cloud": "amazon-us-east-n-virginia"
+  }
+},
+{
   "model": "cloudlaunch.application",
   "pk": "biodocklet",
   "fields": {
     "added": "2017-03-13T14:27:43.129Z",
-    "updated": "2017-11-19T16:03:13.916Z",
+    "updated": "2017-12-22T21:44:29.686Z",
     "name": "BioDocklet",
     "status": "LIVE",
     "summary": "Abstract the complex data operations of multi-step, bioinformatics pipelines for NGS data analysis.",
@@ -1024,6 +1042,7 @@
     "icon_url": "http://i.imgur.com/ViePkQP.jpg",
     "default_launch_config": "",
     "default_version": 13,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1032,7 +1051,7 @@
   "pk": "chemical-toolbox",
   "fields": {
     "added": "2017-09-07T21:00:23.106Z",
-    "updated": "2017-11-19T16:03:31.225Z",
+    "updated": "2017-12-22T21:44:15.490Z",
     "name": "Chemical toolbox",
     "status": "LIVE",
     "summary": "Galaxy tailored for cheminformatics",
@@ -1042,6 +1061,7 @@
     "icon_url": "https://i.imgur.com/NhIZvB1.png",
     "default_launch_config": "",
     "default_version": 29,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1050,7 +1070,7 @@
   "pk": "cloudman-20",
   "fields": {
     "added": "2017-06-19T22:55:20.860Z",
-    "updated": "2017-11-19T16:03:52.322Z",
+    "updated": "2017-12-22T21:44:06.592Z",
     "name": "CloudMan 2.0",
     "status": "DEV",
     "summary": "An all-new version of CloudMan",
@@ -1060,6 +1080,7 @@
     "icon_url": "https://i.imgur.com/4cJu1lC.png",
     "default_launch_config": "",
     "default_version": 24,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1068,7 +1089,7 @@
   "pk": "cloudman-cluster",
   "fields": {
     "added": "2016-06-26T02:52:12.705Z",
-    "updated": "2017-11-19T16:04:15.362Z",
+    "updated": "2017-12-22T21:43:55.994Z",
     "name": "CloudMan Cluster",
     "status": "DEV",
     "summary": "A standalone Slurm cluster-in-the-cloud",
@@ -1078,6 +1099,7 @@
     "icon_url": "https://i.imgur.com/4cJu1lC.png",
     "default_launch_config": "",
     "default_version": 21,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1086,7 +1108,7 @@
   "pk": "docker-galaxy",
   "fields": {
     "added": "2016-12-23T13:13:54.853Z",
-    "updated": "2017-11-19T16:02:15.104Z",
+    "updated": "2017-12-22T21:43:35.038Z",
     "name": "Base Galaxy",
     "status": "LIVE",
     "summary": "A blank instance of Galaxy.",
@@ -1096,6 +1118,7 @@
     "icon_url": "https://i.imgur.com/jktC9QS.png",
     "default_launch_config": "",
     "default_version": 26,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1104,7 +1127,7 @@
   "pk": "docker_launch",
   "fields": {
     "added": "2017-01-26T18:45:15.792Z",
-    "updated": "2017-11-19T16:04:30.963Z",
+    "updated": "2017-12-22T21:43:44.189Z",
     "name": "Docker Launch",
     "status": "DEV",
     "summary": "This app can launch arbitrary docker containers on a given cloud.",
@@ -1114,6 +1137,7 @@
     "icon_url": "https://i.imgur.com/jktC9QS.png",
     "default_launch_config": "",
     "default_version": 12,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1122,7 +1146,7 @@
   "pk": "exome-seq",
   "fields": {
     "added": "2017-09-07T15:53:50.300Z",
-    "updated": "2017-11-19T16:04:44.223Z",
+    "updated": "2017-12-22T21:42:55.586Z",
     "name": "Exome-Seq",
     "status": "LIVE",
     "summary": "Galaxy tailored for Exome-seq analyses",
@@ -1132,6 +1156,7 @@
     "icon_url": "https://i.imgur.com/hij1TQV.png",
     "default_launch_config": "",
     "default_version": 27,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1140,7 +1165,7 @@
   "pk": "galaxy-cloud",
   "fields": {
     "added": "2016-06-26T02:32:38.336Z",
-    "updated": "2017-11-19T16:05:30.660Z",
+    "updated": "2017-12-22T21:39:19.312Z",
     "name": "Galaxy CloudMan",
     "status": "LIVE",
     "summary": "Pre-configured Galaxy instance on a scalable cluster-in-the-cloud.",
@@ -1150,6 +1175,7 @@
     "icon_url": "https://i.imgur.com/bVPmVYo.png",
     "default_launch_config": "",
     "default_version": 22,
+    "display_order": 1020,
     "category": []
   }
 },
@@ -1158,7 +1184,7 @@
   "pk": "galaxy-stanalone-vm",
   "fields": {
     "added": "2016-06-28T15:38:10.548Z",
-    "updated": "2017-11-19T16:05:52.702Z",
+    "updated": "2017-12-22T21:41:18.870Z",
     "name": "Galaxy Standalone VM",
     "status": "LIVE",
     "summary": "A standalone Galaxy virtual machine, configured and ready for use.",
@@ -1168,6 +1194,7 @@
     "icon_url": "https://i.imgur.com/XdDJNnF.png",
     "default_launch_config": "",
     "default_version": 14,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1176,7 +1203,7 @@
   "pk": "genomics-virtual-lab",
   "fields": {
     "added": "2016-06-26T02:30:40.098Z",
-    "updated": "2017-12-13T17:37:08.574Z",
+    "updated": "2017-12-22T21:40:14.762Z",
     "name": "Genomics Virtual Lab",
     "status": "LIVE",
     "summary": "A versatile genomics workbench with Galaxy, RStudio and Jupyter.",
@@ -1185,7 +1212,8 @@
     "info_url": "https://genome.edu.au/",
     "icon_url": "http://melbournebioinformatics.github.io/MelBioInf_docs/tutorials/assembly/media/gvl_logo.jpg",
     "default_launch_config": "{\r\n   \"config_gvl\": {\r\n      \"config_cloudman\": {\r\n         \"masterPostStartScript\": \"file:///opt/gvl/scripts/triggers;file:///mnt/galaxy/gvl/poststart.d\",\r\n         \"cluster_templates\": [\r\n            {\r\n               \"name\": \"Galaxy\",\r\n               \"filesystem_templates\": [\r\n                  {\r\n                     \"name\": \"galaxy\",\r\n                     \"roles\": \"galaxyTools,galaxyData\"\r\n                  },\r\n                  {\r\n                     \"name\": \"galaxyIndices\",\r\n                     \"roles\": \"galaxyIndices\"\r\n                  }\r\n               ]\r\n            },\r\n            {\r\n               \"name\": \"Data\",\r\n               \"filesystem_templates\": [\r\n                  {\r\n                     \"type\": \"volume\",\r\n                     \"name\": \"galaxy\"\r\n                  }\r\n               ]\r\n            }\r\n         ]\r\n      }\r\n   },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m1.medium\",\r\n      \"provider_settings\": {\r\n         \"ebsOptimised\": true\r\n       },\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-gvl\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"1\",\r\n                   \"to\": \"65535\",\r\n                   \"cidr\": \"0.0.0.0/0\",\r\n                   \"src_group\": \"cloudlaunch\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
-    "default_version": 17,
+    "default_version": 31,
+    "display_order": 1000,
     "category": []
   }
 },
@@ -1194,7 +1222,7 @@
   "pk": "rna-seq",
   "fields": {
     "added": "2017-09-07T18:56:20.296Z",
-    "updated": "2017-11-19T16:06:46.572Z",
+    "updated": "2017-12-22T21:41:03.417Z",
     "name": "RNA-Seq",
     "status": "LIVE",
     "summary": "Galaxy tailored for RNA-seq analyses",
@@ -1204,6 +1232,7 @@
     "icon_url": "https://i.imgur.com/nOSTRsz.png",
     "default_launch_config": "",
     "default_version": 28,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1212,7 +1241,7 @@
   "pk": "rna-structural-analysis",
   "fields": {
     "added": "2017-09-07T21:12:38.974Z",
-    "updated": "2017-11-19T16:06:57.432Z",
+    "updated": "2017-12-22T21:40:55.830Z",
     "name": "RNA structural analysis",
     "status": "LIVE",
     "summary": "Galaxy for RNA structural analysis",
@@ -1222,6 +1251,7 @@
     "icon_url": "https://i.imgur.com/vo0xCko.png",
     "default_launch_config": "",
     "default_version": 30,
+    "display_order": 10000,
     "category": []
   }
 },
@@ -1230,7 +1260,7 @@
   "pk": "ubuntu",
   "fields": {
     "added": "2016-06-27T22:10:17.212Z",
-    "updated": "2017-11-22T17:11:27.693Z",
+    "updated": "2017-12-22T21:38:44.060Z",
     "name": "Ubuntu",
     "status": "LIVE",
     "summary": "Ubuntu operating system",
@@ -1240,6 +1270,7 @@
     "icon_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo-ubuntu_no%28r%29-black_orange-hex.svg?download",
     "default_launch_config": "",
     "default_version": 5,
+    "display_order": 1030,
     "category": []
   }
 },
@@ -1250,7 +1281,7 @@
     "application": "genomics-virtual-lab",
     "version": "4.1.0 - GVL Tutorial",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "gvl-config",
+    "frontend_component_name": "clui-gvl-config",
     "backend_component_name": "cloudlaunch.backend_plugins.gvl_app.GVLAppPlugin",
     "default_launch_config": "",
     "default_cloud": "nectar"
@@ -1263,7 +1294,7 @@
     "application": "genomics-virtual-lab",
     "version": "4.1.0 - GVL Blank Indices",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "gvl-config",
+    "frontend_component_name": "clui-gvl-config",
     "backend_component_name": "cloudlaunch.backend_plugins.gvl_app.GVLAppPlugin",
     "default_launch_config": "",
     "default_cloud": "nectar"
@@ -1276,7 +1307,7 @@
     "application": "cloudman-cluster",
     "version": "16.05",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "cloudman-config",
+    "frontend_component_name": "clui-cloudman-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman_app.CloudManAppPlugin",
     "default_launch_config": "",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1289,7 +1320,7 @@
     "application": "galaxy-cloud",
     "version": "16.04",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "cloudman-config",
+    "frontend_component_name": "clui-cloudman-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman_app.CloudManAppPlugin",
     "default_launch_config": "",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1300,9 +1331,9 @@
   "pk": 5,
   "fields": {
     "application": "ubuntu",
-    "version": "16.04",
+    "version": "16.04 (with Docker)",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.base_vm_app.BaseVMAppPlugin",
     "default_launch_config": "",
     "default_cloud": "jetstream"
@@ -1315,7 +1346,7 @@
     "application": "galaxy-stanalone-vm",
     "version": "16.07",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m1.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"CloudLaunch\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"40000\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "jetstream"
@@ -1328,10 +1359,10 @@
     "application": "ubuntu",
     "version": "14.04",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.base_vm_app.BaseVMAppPlugin",
     "default_launch_config": "",
-    "default_cloud": null
+    "default_cloud": "amazon-us-east-n-virginia"
   }
 },
 {
@@ -1341,7 +1372,7 @@
     "application": "galaxy-cloud",
     "version": "16.10",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "cloudman-config",
+    "frontend_component_name": "clui-cloudman-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman_app.CloudManAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudman\": {\r\n       \"defaultBucket\": \"cloudman\",\r\n       \"cm_remote_filename\": \"cm16.tar.gz\",\r\n       \"storageType\": \"volume\",\r\n       \"clusterType\": \"Galaxy\",\r\n       \"cluster_templates\": [\r\n          {\r\n             \"name\": \"Galaxy\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"data_source\": \"archive\",\r\n                   \"name\": \"galaxy\",\r\n                   \"roles\": \"galaxyTools,galaxyData\",\r\n                   \"archive_url\": \"http://s3.amazonaws.com/cloudman/fs-archives/galaxyFS-20170125.tar.gz\",\r\n                   \"size\": 50\r\n                },\r\n                {\r\n                   \"name\": \"galaxyIndices\",\r\n                   \"roles\": \"galaxyIndices\",\r\n                   \"type\": \"cvmfs\",\r\n                   \"mount_point\": \"/cvmfs/data.galaxyproject.org\"\r\n                }\r\n             ]\r\n          },\r\n          {\r\n             \"name\": \"Data\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"type\": \"volume\",\r\n                   \"name\": \"galaxy\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"c3.large\",\r\n      \"provider_settings\": {\r\n         \"ebsOptimized\": false\r\n       },\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-cm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"443\",\r\n                   \"to\": \"443\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                 {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"1\",\r\n                   \"to\": \"65535\",\r\n                   \"src_group\": \"cloudlaunch-cm\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1354,7 +1385,7 @@
     "application": "galaxy-cloud",
     "version": "16.07",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "cloudman-config",
+    "frontend_component_name": "clui-cloudman-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman_app.CloudManAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudman\": {\r\n       \"defaultBucket\": \"cloudman\",\r\n       \"cm_remote_filename\": \"cm16.tar.gz\",\r\n       \"storageType\": \"volume\",\r\n       \"clusterType\": \"Galaxy\",\r\n       \"cluster_templates\": [\r\n          {\r\n             \"name\": \"Galaxy\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"data_source\": \"archive\",\r\n                   \"name\": \"galaxy\",\r\n                   \"roles\": \"galaxyTools,galaxyData\",\r\n                   \"archive_url\": \"http://s3.amazonaws.com/cloudman/fs-archives/galaxyFS-20161101.tar.gz\",\r\n                   \"size\": 50\r\n                },\r\n                {\r\n                   \"name\": \"galaxyIndices\",\r\n                   \"roles\": \"galaxyIndices\",\r\n                   \"type\": \"cvmfs\",\r\n                   \"mount_point\": \"/cvmfs/data.galaxyproject.org\"\r\n                }\r\n             ]\r\n          },\r\n          {\r\n             \"name\": \"Data\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"type\": \"volume\",\r\n                   \"name\": \"galaxy\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"c3.large\",\r\n      \"provider_settings\": {\r\n         \"ebsOptimised\": false\r\n       },\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-cm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"443\",\r\n                   \"to\": \"443\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                 {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"1\",\r\n                   \"to\": \"65535\",\r\n                   \"src_group\": \"cloudlaunch-cm\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1367,7 +1398,7 @@
     "application": "docker_launch",
     "version": "0.1",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "docker-config",
+    "frontend_component_name": "clui-docker-config",
     "backend_component_name": "cloudlaunch.backend_plugins.docker_app.DockerAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m1.medium\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-dockerl\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-ap-sydney"
@@ -1380,7 +1411,7 @@
     "application": "biodocklet",
     "version": "RNA-Seq - paired",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.base_vm_app.BaseVMAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker pull bcil/biodocklets:RNAseq_paired\",\r\n       \"instanceType\": \"c3.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-biodocklet\",\r\n             \"rules\": [\r\n               {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }, \r\n               {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"8090\",\r\n                   \"to\": \"8090\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"9010\",\r\n                   \"to\": \"9010\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1393,7 +1424,7 @@
     "application": "galaxy-stanalone-vm",
     "version": "17.01",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#cloud-config\\n  package_upgrade: false\\n\",\r\n       \"instanceType\": \"m1.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"CloudLaunch\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"40000\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                 {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\",\r\n                   \"src_group\": \"CloudLaunchTMP\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "jetstream"
@@ -1406,7 +1437,7 @@
     "application": "biodocklet",
     "version": "ChIP-Seq - paired",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.base_vm_app.BaseVMAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker pull bcil/biodocklets:ChIPseq_paired\",\r\n       \"instanceType\": \"c3.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-biodocklet\",\r\n             \"rules\": [\r\n               {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }, \r\n               {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"8090\",\r\n                   \"to\": \"8090\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"9010\",\r\n                   \"to\": \"9010\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1419,7 +1450,7 @@
     "application": "genomics-virtual-lab",
     "version": "GVL 4.2.0 - Blank Indices",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "gvl-config",
+    "frontend_component_name": "clui-gvl-config",
     "backend_component_name": "cloudlaunch.backend_plugins.gvl_app.GVLAppPlugin",
     "default_launch_config": "",
     "default_cloud": "nectar"
@@ -1432,7 +1463,7 @@
     "application": "genomics-virtual-lab",
     "version": "GVL 4.2.0 - Tutorial Indices",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "gvl-config",
+    "frontend_component_name": "clui-gvl-config",
     "backend_component_name": "cloudlaunch.backend_plugins.gvl_app.GVLAppPlugin",
     "default_launch_config": "",
     "default_cloud": "nectar"
@@ -1445,7 +1476,7 @@
     "application": "galaxy-cloud",
     "version": "dev",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "cloudman-config",
+    "frontend_component_name": "clui-cloudman-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman_app.CloudManAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudman\": {\r\n       \"defaultBucket\": \"cloudman-dev\",\r\n       \"storageType\": \"transient\",\r\n       \"clusterType\": \"Galaxy\",\r\n       \"cluster_templates\": [\r\n          {\r\n             \"name\": \"Galaxy\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"data_source\": \"archive\",\r\n                   \"name\": \"galaxy\",\r\n                   \"roles\": \"galaxyTools,galaxyData\",\r\n                   \"archive_url\": \"http://s3.amazonaws.com/cloudman/fs-archives/galaxyFS-latest.tar.gz\",\r\n                   \"size\": 50\r\n                },\r\n                {\r\n                   \"name\": \"galaxyIndices\",\r\n                   \"roles\": \"galaxyIndices\",\r\n                   \"type\": \"cvmfs\",\r\n                   \"mount_point\": \"/cvmfs/data.galaxyproject.org\"\r\n                }\r\n             ]\r\n          },\r\n          {\r\n             \"name\": \"Data\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"type\": \"volume\",\r\n                   \"name\": \"galaxy\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"c3.large\",\r\n      \"provider_settings\": {\r\n         \"ebsOptimised\": true\r\n       },\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-cm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"443\",\r\n                   \"to\": \"443\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                 {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"1\",\r\n                   \"to\": \"65535\",\r\n                   \"src_group\": \"cloudlaunch-cm\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1458,7 +1489,7 @@
     "application": "docker-galaxy",
     "version": "No-container",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.base_vm_app.BaseVMAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m1.small\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-docker\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1471,7 +1502,7 @@
     "application": "biodocklet",
     "version": "ChIP-Seq - single",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.base_vm_app.BaseVMAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker pull bcil/biodocklets:ChIPseq_single\",\r\n       \"instanceType\": \"c3.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-biodocklet\",\r\n             \"rules\": [\r\n               {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }, \r\n               {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"8090\",\r\n                   \"to\": \"8090\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"9010\",\r\n                   \"to\": \"9010\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1484,7 +1515,7 @@
     "application": "cloudman-cluster",
     "version": "16.11",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "cloudman-config",
+    "frontend_component_name": "clui-cloudman-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman_app.CloudManAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudman\": {\r\n       \"defaultBucket\": \"cloudman-dev\",\r\n       \"storageType\": \"transient\",\r\n       \"clusterType\": \"Data\",\r\n       \"cluster_templates\": [\r\n          {\r\n             \"name\": \"Galaxy\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"data_source\": \"archive\",\r\n                   \"archive_md5\": \"b4c822ec2494fca9810d0d127d7b6722\",\r\n                   \"name\": \"galaxy\",\r\n                   \"roles\": \"galaxyTools,galaxyData\",\r\n                   \"archive_url\": \"https://swift.rc.nectar.org.au:8888/v1/AUTH_377/cloudman-gvl-400/gvl-galaxyfs-4.0.0.tar.gz\",\r\n                   \"type\": \"transient\"\r\n                },\r\n                {\r\n                   \"type\": \"transient\",\r\n                   \"archive_md5\": \"4b360787af3672a2f20ab0ce961912bc\",\r\n                   \"name\": \"galaxyIndices\",\r\n                   \"roles\": \"galaxyIndices\",\r\n                   \"archive_url\": \"https://swift.rc.nectar.org.au:8888/v1/AUTH_377/cloudman-gvl-400/gvl-indices-tutorial-4.0.0.tar.gz\"\r\n                }\r\n             ]\r\n          },\r\n          {\r\n             \"name\": \"Data\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"type\": \"volume\",\r\n                   \"name\": \"galaxy\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m3.medium\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-cm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1497,7 +1528,7 @@
     "application": "galaxy-cloud",
     "version": "17.05",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "cloudman-config",
+    "frontend_component_name": "clui-cloudman-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman_app.CloudManAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudman\": {\r\n       \"defaultBucket\": \"cloudman-test\",\r\n       \"storageType\": \"volume\",\r\n       \"clusterType\": \"Galaxy\",\r\n       \"cluster_templates\": [\r\n          {\r\n             \"name\": \"Galaxy\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"data_source\": \"archive\",\r\n                   \"name\": \"galaxy\",\r\n                   \"roles\": \"galaxyTools,galaxyData\",\r\n                   \"archive_url\": \"http://s3.amazonaws.com/cloudman/fs-archives/galaxyFS-20170622.tar.gz\",\r\n                   \"size\": 50\r\n                },\r\n                {\r\n                   \"name\": \"galaxyIndices\",\r\n                   \"roles\": \"galaxyIndices\",\r\n                   \"type\": \"cvmfs\",\r\n                   \"mount_point\": \"/cvmfs/data.galaxyproject.org\"\r\n                }\r\n             ]\r\n          },\r\n          {\r\n             \"name\": \"Data\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"type\": \"volume\",\r\n                   \"name\": \"galaxy\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m4.xlarge\",\r\n      \"provider_settings\": {\r\n         \"ebsOptimised\": false\r\n       },\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-cm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"443\",\r\n                   \"to\": \"443\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                 {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"1\",\r\n                   \"to\": \"65535\",\r\n                   \"src_group\": \"cloudlaunch-cm\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1510,7 +1541,7 @@
     "application": "genomics-virtual-lab",
     "version": "GVL 4.2.0 - Blank+cmd",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "gvl-config",
+    "frontend_component_name": "clui-gvl-config",
     "backend_component_name": "cloudlaunch.backend_plugins.gvl_app.GVLAppPlugin",
     "default_launch_config": "",
     "default_cloud": "nectar"
@@ -1523,7 +1554,7 @@
     "application": "cloudman-20",
     "version": "dev",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.cloudman2_app.CloudMan2AppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudman\": {},\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m1.tiny\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-cm2\",\r\n             \"rules\": [\r\n               {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"8080\",\r\n                   \"to\": \"8080\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"1\",\r\n                   \"to\": \"65535\",\r\n                   \"src_group\": \"CloudLaunch\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "jetstream"
@@ -1536,7 +1567,7 @@
     "application": "galaxy-stanalone-vm",
     "version": "17.05",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"m1.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"CloudLaunch\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"40000\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                 {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\",\r\n                   \"src_group\": \"CloudLaunch\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "jetstream"
@@ -1549,7 +1580,7 @@
     "application": "docker-galaxy",
     "version": "Latest",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker run --privileged -d -p 8888:80 -p 8021:21 -p 8022:22 quay.io/bgruening/galaxy:17.05.cvmfs\",\r\n       \"instanceType\": \"m1.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-docker\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1562,7 +1593,7 @@
     "application": "exome-seq",
     "version": "Latest",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker run -d -p 8888:80 -p 8021:21 -p 8022:22 quay.io/bgruening/galaxy-exome-seq:latest\",\r\n       \"instanceType\": \"m1.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-docker\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1575,7 +1606,7 @@
     "application": "rna-seq",
     "version": "Latest",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker run -d -p 8888:80 -p 8021:21 -p 8022:22 quay.io/bgruening/galaxy-rna-seq:latest\",\r\n       \"instanceType\": \"c3.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-docker\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1588,7 +1619,7 @@
     "application": "chemical-toolbox",
     "version": "Latest",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker run -d -p 8888:80 -p 8021:21 -p 8022:22 quay.io/bgruening/galaxy-chemicaltoolbox:latest\",\r\n       \"instanceType\": \"m1.medium\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-docker\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1601,7 +1632,7 @@
     "application": "rna-structural-analysis",
     "version": "Latest",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "ubuntu-config",
+    "frontend_component_name": "clui-ubuntu-config",
     "backend_component_name": "cloudlaunch.backend_plugins.simple_web_app.SimpleWebAppPlugin",
     "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instance_user_data\": \"#!/bin/bash\\ndocker run -d -p 8888:80 -p 8021:21 -p 8022:22 quay.io/bgruening/galaxy-rna-structural-analysis:latest\",\r\n       \"instanceType\": \"m1.large\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-docker\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
     "default_cloud": "amazon-us-east-n-virginia"
@@ -1612,12 +1643,25 @@
   "pk": 31,
   "fields": {
     "application": "genomics-virtual-lab",
-    "version": "GVL 4.3.0 RC 1",
+    "version": "GVL 4.3.0",
     "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
-    "frontend_component_name": "gvl-config",
+    "frontend_component_name": "clui-gvl-config",
     "backend_component_name": "cloudlaunch.backend_plugins.gvl_app.GVLAppPlugin",
     "default_launch_config": "",
-    "default_cloud": "nectar"
+    "default_cloud": "amazon-us-east-n-virginia"
+  }
+},
+{
+  "model": "cloudlaunch.applicationversion",
+  "pk": 32,
+  "fields": {
+    "application": "ubuntu",
+    "version": "16.04 (bare)",
+    "frontend_component_path": "app/marketplace/plugins/plugins.module#PluginsModule",
+    "frontend_component_name": "clui-ubuntu-config",
+    "backend_component_name": "cloudlaunch.backend_plugins.base_vm_app.BaseVMAppPlugin",
+    "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"t2.nano\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-vm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}",
+    "default_cloud": "amazon-us-east-n-virginia"
   }
 },
 {
@@ -1882,17 +1926,6 @@
     "image": 88,
     "default_instance_type": "",
     "default_launch_config": "{\r\n   \"config_cloudman\": {\r\n       \"defaultBucket\": \"cloudman\",\r\n       \"storageType\": \"volume\",\r\n       \"clusterType\": \"Galaxy\",\r\n       \"cluster_templates\": [\r\n          {\r\n             \"name\": \"Galaxy\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"data_source\": \"archive\",\r\n                   \"name\": \"galaxy\",\r\n                   \"roles\": \"galaxyTools,galaxyData\",\r\n                   \"archive_url\": \"http://s3.amazonaws.com/cloudman/fs-archives/galaxyFS-20170125.tar.gz\",\r\n                   \"size\": 50\r\n                },\r\n                {\r\n                   \"name\": \"galaxyIndices\",\r\n                   \"roles\": \"galaxyIndices\",\r\n                   \"type\": \"cvmfs\",\r\n                   \"mount_point\": \"/cvmfs/data.galaxyproject.org\"\r\n                }\r\n             ]\r\n          },\r\n          {\r\n             \"name\": \"Data\",\r\n             \"filesystem_templates\": [\r\n                {\r\n                   \"type\": \"volume\",\r\n                   \"name\": \"galaxy\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"c3.large\",\r\n      \"provider_settings\": {\r\n         \"ebsOptimized\": false\r\n       },\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-cm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"80\",\r\n                   \"to\": \"80\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"443\",\r\n                   \"to\": \"443\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                 {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"20\",\r\n                   \"to\": \"21\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"30000\",\r\n                   \"to\": \"30100\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                },\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"1\",\r\n                   \"to\": \"65535\",\r\n                   \"src_group\": \"CloudLaunch\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}"
-  }
-},
-{
-  "model": "cloudlaunch.applicationversioncloudconfig",
-  "pk": 33,
-  "fields": {
-    "application_version": 5,
-    "cloud": "amazon-ap-seoul",
-    "image": 89,
-    "default_instance_type": "",
-    "default_launch_config": "{\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"t2.nano\",\r\n       \"firewall\": [\r\n          {\r\n             \"securityGroup\": \"cloudlaunch-vm\",\r\n             \"rules\": [\r\n                {\r\n                   \"protocol\": \"tcp\",\r\n                   \"from\": \"22\",\r\n                   \"to\": \"22\",\r\n                   \"cidr\": \"0.0.0.0/0\"\r\n                }\r\n             ]\r\n          }\r\n       ]\r\n    }\r\n}"
   }
 },
 {
@@ -2421,6 +2454,28 @@
     "image": 101,
     "default_instance_type": null,
     "default_launch_config": "{\r\n   \"config_gvl\": {\r\n      \"config_cloudman\": {\r\n         \"masterPostStartScript\": \"file:///opt/gvl/scripts/triggers;file:///mnt/galaxy/gvl/poststart.d\",\r\n         \"defaultBucket\": \"cloudman-gvl-430\",\r\n         \"storageType\": \"volume\",\r\n         \"storageSize\": 100,\r\n         \"clusterType\": \"Galaxy\",\r\n         \"gvl_config\": { \"install\" : [\"gvl_cmdline_utilities\"] },\r\n         \"cluster_templates\": [\r\n            {\r\n               \"name\": \"Galaxy\",\r\n               \"filesystem_templates\": [\r\n                  {\r\n                     \"data_source\": \"archive\",\r\n                     \"archive_md5\": \"7c252fd983b52fcc358c62895b22eed4\",\r\n                     \"name\": \"galaxy\",\r\n                     \"roles\": \"galaxyTools,galaxyData\",\r\n                     \"type\": \"volume\",\r\n                     \"size\": 62,\r\n                     \"archive_url\": \"https://s3.amazonaws.com/cloudman-gvl-430/filesystems/gvl-galaxyfs-4.3.0.tar.gz\"\r\n                  },\r\n                 {\r\n                    \"name\": \"galaxyIndices\",\r\n                    \"roles\": \"galaxyIndices\",\r\n                    \"type\": \"cvmfs\",\r\n                    \"mount_point\": \"/cvmfs/data.galaxyproject.org\"\r\n                 }\r\n               ]\r\n            }\r\n         ]\r\n      },\r\n      \"gvl_cmdline_utilities\": true,\r\n      \"gvl_package_registry_url\": \"https://swift.rc.nectar.org.au:8888/v1/AUTH_377/cloudman-gvl-430/packages/package_registry.yml\"\r\n   },\r\n   \"config_cloudlaunch\": {\r\n       \"instanceType\": \"c5.large\"\r\n    }\r\n}"
+  }
+},
+{
+  "model": "cloudlaunch.applicationversioncloudconfig",
+  "pk": 85,
+  "fields": {
+    "application_version": 32,
+    "cloud": "amazon-us-east-n-virginia",
+    "image": 102,
+    "default_instance_type": null,
+    "default_launch_config": ""
+  }
+},
+{
+  "model": "cloudlaunch.applicationversioncloudconfig",
+  "pk": 86,
+  "fields": {
+    "application_version": 32,
+    "cloud": "amazon-ap-seoul",
+    "image": 89,
+    "default_instance_type": null,
+    "default_launch_config": ""
   }
 },
 {
