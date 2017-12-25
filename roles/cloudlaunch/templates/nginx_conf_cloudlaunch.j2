@@ -15,10 +15,10 @@ server {
 
 server {
     listen   *:443 ssl;
-    server_name {{ server_name }};
+    server_name {{ server_name or cert_domains_list[0] }};
 
-    ssl_certificate {{ ssl_cert_path }};
-    ssl_certificate_key {{ ssl_key_path }};
+    ssl_certificate {{ ssl_cert_path or '/etc/letsencrypt/live/' + cert_domains_list[0] + '/fullchain.pem' }};
+    ssl_certificate_key {{ ssl_key_path or '/etc/letsencrypt/live/' + cert_domains_list[0] + '/privkey.pem' }};
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # omit SSLv3 because of POODLE (CVE‑2014‑3566)
 
     client_max_body_size 4G;

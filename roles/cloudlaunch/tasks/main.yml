@@ -7,6 +7,9 @@
 - include: setup_rabbitmq.yml
   tags: broker
 
+- include: setup_certbot.yml
+  tags: certbot
+
 - include: setup_webapp.yml
   tags: webapp
 

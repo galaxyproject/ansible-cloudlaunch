@@ -19,6 +19,8 @@ cloudlaunch_admin_user: cloudlaunch
 cloudlaunch_admin_email: "admin@{{ inventory_hostname }}"
 cloudlaunch_admin_password: "CHANGEMEONINSTALL"
 
+# Manual SSL settings. These always take precedence over certbot settings
+# Undefine these to activate certbot
 server_name: beta.launch.usegalaxy.org
 ssl_cert_path: /etc/nginx/ssl/cl.crt
 ssl_key_path: /etc/nginx/ssl/cl.key
@@ -26,4 +28,9 @@ ssl_cert_files:  # These files need to be placed into files/secret and vaulted
   - beta.launch.usegalaxy.org_certchain.pem
   - cl.crt
   - cl.key
+
+# Certbot settings
+certbot_admin_email: "{{ cloudlaunch_admin_email }}"
+cert_domains_list: ["{{ server_name }}"]
+
 ...
