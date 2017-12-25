@@ -56,6 +56,4 @@
     mode: 0755
   notify:
    - reload nginx
-   - reload supervisor
-   - restart supervisor
 ...
