@@ -1,5 +1,8 @@
-- name: install certbot dependencies
-  apt: name={{ item }} state=present
+---
+- name: Install Certbot dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
   with_items:
     - software-properties-common
 
@@ -14,12 +17,12 @@
     name: python-certbot-nginx
     state: latest
 
-- name: check whether a cert already exists
+- name: Check whether a cert already exists
   stat:
     path: "/etc/letsencrypt/live/{{ cert_domains_list | first }}/fullchain.pem"
   register: letsencrypt_cert
 
-- name: Stop services to allow certbot to generate a cert.
+- name: Stop services to allow Certbot to generate a cert
   service:
     name: "{{ item }}"
     state: stopped
@@ -27,11 +30,11 @@
   with_items:
     - nginx
 
-- name: Generate new certificate if one doesn't exist.
+- name: Generate new certificate if one doesn't exist
   shell: "certbot certonly --standalone --noninteractive --agree-tos --email {{ certbot_admin_email }} -d {{ cert_domains_list | join(',') }}"
   when: not letsencrypt_cert.stat.exists
 
-- name: Start services after cert has been generated.
+- name: Start services after cert has been generated
   service:
     name: "{{ item }}"
     state: started
@@ -39,7 +42,7 @@
   with_items:
     - nginx
   
-- name: Add cron job for certbot renewal (if configured).
+- name: Add cron job for Certbot renewal (if configured)
   cron:
     name: Certbot automatic renewal.
     job: /usr/bin/certbot renew --quiet --renew-hook "/usr/sbin/service nginx reload"
@@ -48,3 +51,4 @@
     day: "1"
   become: yes
   become_user: "root"
+...
