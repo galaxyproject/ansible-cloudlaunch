@@ -15,5 +15,4 @@
 
 - include: setup_webui.yml
   tags:
-    - webapp
     - webui

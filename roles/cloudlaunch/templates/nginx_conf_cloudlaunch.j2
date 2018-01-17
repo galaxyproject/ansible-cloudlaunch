@@ -92,3 +92,18 @@ server {
         root {{ server_install_dir }}/django-cloudlaunch/static/;
     }
 }
+
+# Handle legacy redirects
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name beta.launch.usegalaxy.org;
+    return 301 $scheme://launch.usegalaxy.org$request_uri;
+}
+
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name launch.genome.edu.au;
+    return 301 $scheme://launch.gvl.org.au$request_uri;
+}
