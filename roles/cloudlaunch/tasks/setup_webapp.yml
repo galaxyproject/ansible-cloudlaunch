@@ -71,6 +71,15 @@
     - install
     - deploy
 
+- name: Set Sentry DSN
+  replace:
+    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
+    regexp: "your_sentry_dsn"
+    replace: "{{ sentry_dsn }}"
+  tags:
+    - install
+    - deploy
+
 - name: Change broker password
   replace:
     dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/celeryconfig.py"
