@@ -72,6 +72,11 @@
     - deploy
 
 - name: Set Sentry DSN
+  lineinfile:
+    path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
+    regexp: "'dsn':"
+    line: "    'dsn': '{{ sentry_dsn }}'"
+
   replace:
     dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
     regexp: "your_sentry_dsn"
