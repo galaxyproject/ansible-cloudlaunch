@@ -36,9 +36,12 @@
     virtualenv_python: python3.5
 
 - name: Install server requirements
-  shell: "{{ server_venv }}/bin/pip install -U -r requirements.txt"
-  args:
+  pip:
+    requirements: "{{ server_install_dir }}/requirements.txt"
+    virtualenv: "{{ server_venv }}"
     chdir: "{{ server_install_dir }}"
+    state: latest
+    virtualenv_python: python3.5
   tags:
     - install
     - deploy
