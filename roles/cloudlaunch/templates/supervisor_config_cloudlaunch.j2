@@ -1,5 +1,6 @@
 [program:cloudlaunch]
 command={{ server_install_dir }}/.venv/bin/gunicorn cloudlaunchserver.wsgi:application --bind 127.0.0.1:8000 --pid /var/run/cloudlaunch/gunicorn.pid --workers 4
+environment=CLOUDLAUNCH_PATH_PREFIX="/cloudlaunch"
 user={{ system_user }}
 directory={{ server_install_dir }}/django-cloudlaunch
 stdout_logfile={{ log_dir }}gunicorn_stdout.log
