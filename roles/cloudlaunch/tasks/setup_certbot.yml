@@ -45,7 +45,7 @@
 - name: Add cron job for Certbot renewal (if configured)
   cron:
     name: Certbot automatic renewal.
-    job: /usr/bin/certbot renew --quiet --renew-hook "/usr/sbin/service nginx reload"
+    job: /usr/bin/certbot --nginx renew --quiet --renew-hook "/usr/sbin/service nginx reload"
     minute: "15"
     hour: "3"
     day: "1"
