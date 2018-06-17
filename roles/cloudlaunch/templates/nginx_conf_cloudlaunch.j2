@@ -43,7 +43,7 @@ server {
     access_log {{ log_dir }}nginx-access.log;
     error_log {{ log_dir }}nginx-error.log;
 
-    location /static/ {
+    location {{ cloudlaunch_path_prefix }}/static/ {
         alias   {{ server_install_dir }}/django-cloudlaunch/static/;
     }
 

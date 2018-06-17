@@ -63,14 +63,14 @@
   become: true
   become_user: postgres
 
-- name: Change database password
-  replace:
-    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
-    regexp: "DBPWDCHANGEMEONINSTALL"
-    replace: "{{ dbpassword }}"
-  tags:
-    - install
-    - deploy
+# - name: Change database password
+#   replace:
+#     dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
+#     regexp: "DBPWDCHANGEMEONINSTALL"
+#     replace: "{{ dbpassword }}"
+#   tags:
+#     - install
+#     - deploy
 
 - name: Set Sentry DSN
   lineinfile:
@@ -81,20 +81,26 @@
     - install
     - deploy
 
-- name: Change broker password
-  replace:
-    dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/celeryconfig.py"
-    regexp: "broker_url = 'redis://localhost:6379/0'"
-    replace: "broker_url = 'amqp://{{ broker_user }}:{{ broker_pwd }}@localhost:5672/'"
-  tags:
-    - install
-    - deploy
+# - name: Change broker password
+#   replace:
+#     dest: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/celeryconfig.py"
+#     regexp: "broker_url = 'redis://localhost:6379/0'"
+#     replace: "broker_url = 'amqp://{{ broker_user }}:{{ broker_pwd }}@localhost:5672/'"
+#   tags:
+#     - install
+#     - deploy
 
 - name: Django migrate
   django_manage:
     command: migrate
     app_path: "{{ server_install_dir }}/django-cloudlaunch"
     virtualenv: "{{ server_venv }}"
+  environment:
+    CLOUDLAUNCH_DB_ENGINE: "postgresql"
+    CLOUDLAUNCH_DB_NAME: "{{ dbuser }}"
+    CLOUDLAUNCH_DB_USER: "{{ dbname }}"
+    CLOUDLAUNCH_DB_PASSWORD: "{{ dbpassword }}"
+    CLOUDLAUNCH_DB_HOST: "localhost"
   tags:
     - install
     - deploy
@@ -121,7 +127,7 @@
     command: shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('{{ cloudlaunch_admin_user }}', '{{ cloudlaunch_admin_email }}', '{{ cloudlaunch_admin_password }}')"
   when: not superuser_exists
 
-- name: Set skey
+- name: Set server secret key
   replace:
     path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
     regexp: "(CHANGEthisONinstall|{{ old_skey }})"
@@ -160,6 +166,7 @@
   template:
     src: nginx_conf_cloudlaunch.j2
     dest: /etc/nginx/sites-available/cloudlaunch.org
+    backup: yes
   notify:
    - reload nginx
 

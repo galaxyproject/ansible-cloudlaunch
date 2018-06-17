@@ -18,6 +18,7 @@ dbpassword: "CHANGEMEONINSTALL"
 cloudlaunch_admin_user: cloudlaunch
 cloudlaunch_admin_email: "admin@{{ inventory_hostname }}"
 cloudlaunch_admin_password: "CHANGEMEONINSTALL"
+cloudlaunch_path_prefix: "/cloudlaunch"
 
 # Manual SSL settings. These always take precedence over certbot settings
 # Undefine these to activate certbot

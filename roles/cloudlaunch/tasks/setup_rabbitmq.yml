@@ -26,6 +26,7 @@
   rabbitmq_user:
     user: "{{ broker_user }}"
     password: "{{ broker_pwd }}"
+    force: yes  # Replace with 'update_password: always' with ansible 2.6+
     vhost: /
     configure_priv: .*
     write_priv: .*

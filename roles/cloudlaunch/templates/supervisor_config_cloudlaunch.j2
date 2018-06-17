@@ -1,6 +1,11 @@
 [program:cloudlaunch]
 command={{ server_install_dir }}/.venv/bin/gunicorn cloudlaunchserver.wsgi:application --bind 127.0.0.1:8000 --pid /var/run/cloudlaunch/gunicorn.pid --workers 4
-environment=CLOUDLAUNCH_PATH_PREFIX="/cloudlaunch"
+environment=
+    CLOUDLAUNCH_PATH_PREFIX="{{ cloudlaunch_path_prefix }}",
+    CLOUDLAUNCH_DB_ENGINE="postgresql",
+    CLOUDLAUNCH_DB_NAME="{{ dbuser }}",
+    CLOUDLAUNCH_DB_USER="{{ dbname }}",
+    CLOUDLAUNCH_DB_PASSWORd="{{ dbpassword }}"
 user={{ system_user }}
 directory={{ server_install_dir }}/django-cloudlaunch
 stdout_logfile={{ log_dir }}gunicorn_stdout.log
@@ -13,6 +18,12 @@ autorestart=true
 
 [program:celeryd]
 command={{ server_install_dir }}/.venv/bin/celery worker --app=cloudlaunchserver --beat --loglevel=INFO --autoscale=20,2 --soft-time-limit={{ task_time_limit }}
+environment=
+    CELERY_BROKER_URL="amqp://{{ broker_user }}:{{ broker_pwd }}@127.0.0.1:5672/",
+    CLOUDLAUNCH_DB_ENGINE="postgresql",
+    CLOUDLAUNCH_DB_NAME="{{ dbuser }}",
+    CLOUDLAUNCH_DB_USER="{{ dbname }}",
+    CLOUDLAUNCH_DB_PASSWORd="{{ dbpassword }}"
 user={{ system_user }}
 directory={{ server_install_dir }}/django-cloudlaunch
 stdout_logfile={{ log_dir }}celeryd_stdout.log
