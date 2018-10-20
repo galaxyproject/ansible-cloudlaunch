@@ -7,9 +7,9 @@
     - ppa:fkrull/deadsnakes
     - ppa:ansible/ansible
 
-- name: Add NodeSource repository for Node.js 6.0
+- name: Add NodeSource repository for Node.js 10.0
   apt_repository:
-    repo: '{{ item }} https://deb.nodesource.com/node_6.x {{ ansible_distribution_release|lower }} main'
+    repo: '{{ item }} https://deb.nodesource.com/node_10.x {{ ansible_distribution_release|lower }} main'
     state: present
     update_cache: no
   with_items:
