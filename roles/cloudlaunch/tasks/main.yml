@@ -8,6 +8,7 @@
   tags: broker
 
 - include: setup_certbot.yml
+  when: ssl_cert_path is not defined
   tags: certbot
 
 - include: setup_webapp.yml
