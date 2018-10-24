@@ -30,8 +30,8 @@ cloudlaunch_admin_password: "CHANGEMEONINSTALL"
 cloudlaunch_admin_email: "CHANGETOADMINEMAIL"
 dbpassword: "CHANGEMEONINSTALL"
 server_name: beta.launch.usegalaxy.org
-skey: "CHANGEONINSTALL"
-fernet_keys: "CHANGEONINSTALL"
+cloudlaunch_django_secret: "CHANGEONINSTALL"
+cloudlaunch_fernet_keys: "CHANGEONINSTALL"
 # need to specify destination for certificate and key if not using letencrypt
 ssl_cert_path: /etc/nginx/ssl/cl.crt"
 ssl_key_path: /etc/nginx/ssl/cl.key"

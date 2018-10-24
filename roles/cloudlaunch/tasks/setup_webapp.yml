@@ -151,14 +151,14 @@
 - name: Set server secret key
   replace:
     path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
-    regexp: "(CHANGEthisONinstall|{{ old_skey | default('NOTHINGHERE') }})"
-    replace: "{{ skey }}"
+    regexp: "CHANGEthisONinstall"
+    replace: "{{ cloudlaunch_django_secret }}"
 
 - name: Set fernet keys
   lineinfile:
     path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
     regexp: "^FERNET_KEYS="
-    line: "FERNET_KEYS='{{ fernet_keys }}'"
+    line: "FERNET_KEYS='{{ cloudlaunch_fernet_keys }}'"
 
 - name: Change ownership of cloudlaunch server to web user
   file:
