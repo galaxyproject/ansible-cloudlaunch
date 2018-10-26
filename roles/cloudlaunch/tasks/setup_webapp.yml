@@ -35,7 +35,6 @@
     state: latest
     virtualenv_python: python3.5
 
-
 - name: Install server requirements
   pip:
     requirements: "{{ server_install_dir }}/requirements.txt"
@@ -164,6 +163,14 @@
   file:
     recurse: yes
     path: "{{ server_install_dir }}"
+    state: 'directory'
+    owner: "{{ system_user }}"
+    group: "{{ system_group }}"
+    mode: '0755'
+
+- name: Create plugin runners directory
+  file:
+    path: "{{ plugin_runners_dir }}"
     state: 'directory'
     owner: "{{ system_user }}"
     group: "{{ system_group }}"
