@@ -151,7 +151,7 @@
 - name: Set server secret key
   replace:
     path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
-    regexp: "CHANGEthisONinstall"
+    regexp: "({{ cloudlaunch_secret_search_string | default('CHANGEthisONinstall') }})"
     replace: "{{ cloudlaunch_django_secret }}"
 
 - name: Set fernet keys

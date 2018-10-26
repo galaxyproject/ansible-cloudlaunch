@@ -19,7 +19,14 @@ cloudlaunch_admin_user: cloudlaunch
 cloudlaunch_admin_email: "admin@{{ inventory_hostname }}"
 cloudlaunch_admin_password: "CHANGEMEONINSTALL"
 cloudlaunch_path_prefix: "/cloudlaunch"
+# String to search for and replace in settings file. This should not be
+# changed, unless the default value is different
+cloudlaunch_secret_search_string: "CHANGEthisONinstall"
+# The actual secret key to replace with. This must be changed before
+# running this playbook
 cloudlaunch_django_secret: "CHANGEONINSTALL"
+# All cloud credential values are encrypted with this key. This must also
+# be changed.
 cloudlaunch_fernet_keys: "CHANGEONINSTALL"
 
 # Manual SSL settings. These always take precedence over certbot settings
