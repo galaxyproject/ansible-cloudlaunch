@@ -115,12 +115,7 @@
     command: migrate
     app_path: "{{ server_install_dir }}/django-cloudlaunch"
     virtualenv: "{{ server_venv }}"
-  environment:
-    CLOUDLAUNCH_DB_ENGINE: "postgresql"
-    CLOUDLAUNCH_DB_NAME: "{{ dbuser }}"
-    CLOUDLAUNCH_DB_USER: "{{ dbname }}"
-    CLOUDLAUNCH_DB_PASSWORD: "{{ dbpassword }}"
-    CLOUDLAUNCH_DB_HOST: "localhost"
+  environment: "{{ cloudlaunch_env }}"
   tags:
     - install
     - deploy
@@ -138,13 +133,7 @@
   shell: echo "from django.contrib.auth import get_user_model; User = get_user_model(); print(User.objects.filter(email='{{ cloudlaunch_admin_email }}').count()>0)" | {{ server_venv }}/bin/python ./manage.py shell
   args:
     chdir: "{{ server_install_dir }}/django-cloudlaunch"
-  environment:
-    CLOUDLAUNCH_DB_ENGINE: "postgresql"
-    CLOUDLAUNCH_DB_NAME: "{{ dbuser }}"
-    CLOUDLAUNCH_DB_USER: "{{ dbname }}"
-    CLOUDLAUNCH_DB_PASSWORD: "{{ dbpassword }}"
-    CLOUDLAUNCH_DB_HOST: "localhost"
-    DJANGO_SETTINGS_MODULE: "{{ cloudlaunchserver_settings_module }}"
+  environment: "{{ cloudlaunch_env }}"
   register: superuser_exists
 
 - name: Report outcome of superuser check
@@ -156,13 +145,7 @@
     app_path: "{{ server_install_dir }}/django-cloudlaunch"
     virtualenv: "{{ server_venv }}"
     command: shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('{{ cloudlaunch_admin_user }}', '{{ cloudlaunch_admin_email }}', '{{ cloudlaunch_admin_password }}')"
-  environment:
-    CLOUDLAUNCH_DB_ENGINE: "postgresql"
-    CLOUDLAUNCH_DB_NAME: "{{ dbuser }}"
-    CLOUDLAUNCH_DB_USER: "{{ dbname }}"
-    CLOUDLAUNCH_DB_PASSWORD: "{{ dbpassword }}"
-    CLOUDLAUNCH_DB_HOST: "localhost"
-    DJANGO_SETTINGS_MODULE: "{{ cloudlaunchserver_settings_module }}"
+  environment: "{{ cloudlaunch_env }}"
   when: superuser_exists.stdout == "False"
 
 - name: Set server secret key
@@ -175,7 +158,7 @@
   lineinfile:
     path: "{{ server_install_dir }}/django-cloudlaunch/cloudlaunchserver/settings.py"
     regexp: "^FERNET_KEYS="
-    line: "FERNET_KEYS='{{ cloudlaunch_fernet_keys }}'"
+    line: "FERNET_KEYS={{ cloudlaunch_fernet_keys }}"
 
 - name: Change ownership of cloudlaunch server to web user
   file:

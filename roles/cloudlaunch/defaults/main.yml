@@ -29,6 +29,8 @@ cloudlaunch_django_secret: "CHANGEONINSTALL"
 # All cloud credential values are encrypted with this key. This must also
 # be changed.
 cloudlaunch_fernet_keys: "CHANGEONINSTALL"
+# Settings module to use
+cloudlaunch_settings_module: "cloudlaunchserver.settings_prod"
 
 # Manual SSL settings. These always take precedence over certbot settings
 # Undefine these to activate certbot
@@ -44,4 +46,12 @@ ssl_cert_files:  # These files need to be placed into files/secret and vaulted
 certbot_admin_email: "{{ cloudlaunch_admin_email }}"
 cert_domains_list: ["{{ server_name }}"]
 
+# Cloudlaunch environment variables
+cloudlaunch_env:
+  - CLOUDLAUNCH_DB_ENGINE: "postgresql_psycopg2"
+  - CLOUDLAUNCH_DB_NAME: "{{ dbuser }}"
+  - CLOUDLAUNCH_DB_USER: "{{ dbname }}"
+  - CLOUDLAUNCH_DB_PASSWORD: "{{ dbpassword }}"
+  - CLOUDLAUNCH_DB_HOST: "localhost"
+  - DJANGO_SETTINGS_MODULE: "{{ cloudlaunch_settings_module }}"
 ...
