@@ -17,6 +17,7 @@
   npm:
     path: "{{ ui_install_dir }}"
     state: latest
+  become_user: "{{ system_user }}"
   tags:
     - install
     - deploy
