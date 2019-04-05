@@ -19,7 +19,7 @@
   tasks:
     - name: Dump database data
       become_user: cloudlaunch
-      command: "{{ venv }}/bin/python manage.py dumpdata --indent=2 -o {{ dump_file }} djcloudbridge.cloud djcloudbridge.aws djcloudbridge.openstack cloudlaunch.image cloudlaunch.cloudimage cloudlaunch.application cloudlaunch.applicationversion cloudlaunch.ApplicationVersionCloudConfig public_appliances.tag public_appliances.sponsor public_appliances.location public_appliances.publicservice"
+      command: "{{ venv }}/bin/python manage.py dumpdata --indent=2 -o {{ dump_file }} djcloudbridge.cloud djcloudbridge.region djcloudbridge.zone djcloudbridge.awscloud djcloudbridge.azurecloud djcloudbridge.gcpcloud djcloudbridge.openstackcloud djcloudbridge.awsregion djcloudbridge.azureregion djcloudbridge.gcpregion djcloudbridge.openstackregion cloudlaunch.image cloudlaunch.appcategory cloudlaunch.application cloudlaunch.applicationversion cloudlaunch.DeploymentTarget cloudlaunch.HostDeploymentTarget cloudlaunch.KubernetesDeploymentTarget cloudlaunch.CloudDeploymentTarget cloudlaunch.ApplicationVersionTargetConfig cloudlaunch.ApplicationVersionCloudConfig public_appliances.tag public_appliances.sponsor public_appliances.location public_appliances.publicservice"
       args:
         chdir: "{{ app_dir }}"
 
