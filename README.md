@@ -1,3 +1,6 @@
+## This repoistory is no longer maintained. Use https://github.com/CloudVE/cloudlaunch-helm to setup cloudlaunch.
+
+
 Ansible playbook for deploying [CloudLaunch](https://github.com/galaxyproject/cloudlaunch/tree/dev).
 
 ## Install
